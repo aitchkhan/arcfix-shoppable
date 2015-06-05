@@ -1,0 +1,146 @@
+[
+  {
+  "id": 1,
+  "url": "http:\/\/projects.hoanvusolutions.com\/test-app\/shopthatvid\/assets\/content\/media\/video_demo.mp4",
+  "thumbnail": "assets\/content\/products\/group_01.png",
+  "name" : "Luli Fama 2015 Swimwear Collection",
+  "description": "Video showcasing the 2015 Luli Fama Swimwear Collection",
+  "segments": [
+      {
+        "type": "group",
+        "interval": "0",
+        "id": "1"
+      },
+      {
+        "type": "group",
+        "interval": "12",
+        "id": "2"
+      },
+      {
+        "type": "group",
+        "interval": "15",
+        "id": "3"
+      }
+    ]
+  },
+  {
+  "id": 2,
+  "url": "http:\/\/projects.hoanvusolutions.com\/test-app\/shopthatvid\/assets\/content\/media\/video_demo.mp4",
+  "thumbnail": "assets\/content\/products\/group_02.png",
+  "name" : "Luli Fama 2014 Swimwear Collection",
+  "description": "Video showcasing the 2014 Luli Fama Swimwear Collection",
+  "segments": [
+      {
+        "type": "group",
+        "interval": "29",
+        "id": "4"
+      },
+      {
+        "type": "group",
+        "interval": "50",
+        "id": "5"
+      },
+      {
+        "type": "group",
+        "interval": "60",
+        "id": "6"
+      }
+    ]
+  },
+  {
+  "id": 3,
+  "url": "http:\/\/projects.hoanvusolutions.com\/test-app\/shopthatvid\/assets\/content\/media\/video_demo.mp4",
+  "thumbnail": "assets\/content\/products\/group_03.png",
+  "name" : "Luli Fama 2013 Swimwear Collection",
+  "description": "Video showcasing the 2013 Luli Fama Swimwear Collection",
+  "segments": [
+      {
+        "type": "group",
+        "interval": "90",
+        "id": "7"
+      },
+      {
+        "type": "group",
+        "interval": "80",
+        "id": "8"
+      },
+      {
+        "type": "group",
+        "interval": "70",
+        "id": "9"
+      }
+    ]
+  },
+  {
+  "id": 4,
+  "url": "http:\/\/projects.hoanvusolutions.com\/test-app\/shopthatvid\/assets\/content\/media\/video_demo.mp4",
+  "thumbnail": "assets\/content\/products\/group_04.png",
+  "name" : "Luli Fama 2012 Swimwear Collection",
+  "description": "Video showcasing the 2012 Luli Fama Swimwear Collection",
+  "segments": [
+      {
+        "type": "group",
+        "interval": "40",
+        "id": "10"
+      },
+      {
+        "type": "group",
+        "interval": "60",
+        "id": "11"
+      },
+      {
+        "type": "group",
+        "interval": "50",
+        "id": "12"
+      }
+    ]
+  },
+  {
+  "id": 5,
+  "url": "http:\/\/projects.hoanvusolutions.com\/test-app\/shopthatvid\/assets\/content\/media\/video_demo.mp4",
+  "thumbnail": "assets\/content\/products\/group_05.png",
+  "name" : "Luli Fama 2011 Swimwear Collection",
+  "description": "Video showcasing the 2011 Luli Fama Swimwear Collection",
+  "segments": [
+      {
+        "type": "group",
+        "interval": "0",
+        "id": "13"
+      },
+      {
+        "type": "group",
+        "interval": "25",
+        "id": "14"
+      },
+      {
+        "type": "group",
+        "interval": "45",
+        "id": "15"
+      }
+    ]
+  },
+  {
+  "id": 6,
+  "url": "http:\/\/projects.hoanvusolutions.com\/test-app\/shopthatvid\/assets\/content\/media\/video_demo.mp4",
+  "thumbnail": "assets\/content\/products\/group_06.png",
+  "name" : "Luli Fama 2010 Swimwear Collection",
+  "description": "Video showcasing the 2010 Luli Fama Swimwear Collection",
+  "segments": [
+      {
+        "type": "group",
+        "interval": "0",
+        "id": "16"
+      },
+      {
+        "type": "group",
+        "interval": "60",
+        "id": "17"
+      },
+      {
+        "type": "group",
+        "interval": "90",
+        "id": "18"
+      }
+    ]
+  }
+]

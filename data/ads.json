@@ -1,0 +1,1249 @@
+[
+  {
+    "ID": 1,
+    "Media": "assets\/content\/media\/video_demo.mp4",
+    "Thumbnail": "assets\/content\/products\/group_01.png",
+    "Name": "Luli Fama 2014 Swimwear Collection",
+    "Description": "Video showcasing the 2014 Luli Fama Swimwear Collection Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas venenatis sollicitudin nisl, eu aliquam ligula pellentesque ut. Sed in odio justo.",
+    "segments": [
+      {
+        "type": "group",
+        "interval": "0",
+        "id": "1"
+      },
+      {
+        "type": "group",
+        "interval": "4",
+        "id": "2"
+      },
+      {
+        "type": "group",
+        "interval": "10",
+        "id": "3"
+      }
+    ],
+    "ProductGroupTimeLine": [
+      {
+        "Time": 11,
+        "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+        "Title": "Product Group 1",
+        "Thumbnail": "assets\/content\/products\/group_01.png",
+        "Subtitle": "A glamorous swimsuit set",
+        "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas venenatis sollicitudin nisl, eu aliquam ligula pellentesque ut. Sed in odio justo. Proin nec massa at tellus ullamcorper vestibulum. Proin ac lacus in nisi consequat tempor ac et nisl. Donec purus eros, porttitor eget lectus sed, convallis malesuada velit.",
+        "Products": [
+          {
+            "Name": "Swim suit top",
+            "Subtitle": "A glamorous swim suit top",
+            "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+            "Description": "Bring a little glamour to the deck or the dock. Our Beach Club collection is sure to turn heads with rich colors and chic details. Bikini Top has a flattering sweetheart neckline with removable straps to create a different look (and to prevent tan lines). 74% nylon\/26% spandex. Hand wash. Imported.",
+            "Price": {
+              "PriceValue": "$39.95"
+            },
+            "ProductImages": [
+              "assets\/content\/products\/group_01_top.png", "assets\/content\/products\/temp_1.png",
+              "assets\/content\/products\/temp_2.png", "assets\/content\/products\/temp_3.png",
+              "assets\/content\/products\/temp_4.png", "assets\/content\/products\/temp_5.png"],
+            "Sizes": ["XS", "S", "M", "L"],
+            "ProductColors": [],
+            "Reviews": []
+          }, {
+            "Name": "Swim suit bottom",
+            "Subtitle": "The perfect swim suit bottom",
+            "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+            "Description": "A cheeky bikini bottom featuring a vibrant floral print and ruffle trim. Elasticized trim. Fully lined. Minimal coverage. Knit. Machine wash cold, dry flat. Imported.",
+            "Price": {
+              "PriceValue": "$49.95"
+            },
+            "ProductImages": ["assets\/content\/products\/group_01_bottom.png"],
+            "Sizes": ["XS", "S", "M", "L"],
+            "ProductColors": [],
+            "Reviews": [
+              {
+                "ReviewRating": 5,
+                "ReviewText": "Excellent."
+              },
+              {
+                "ReviewRating": 4,
+                "ReviewText": "Great."
+              },
+              {
+                "ReviewRating": 3,
+                "ReviewText": "Good."
+              },
+              {
+                "ReviewRating": 2,
+                "ReviewText": "Meh."
+              }]
+          }, {
+            "Name": "High heel shoes",
+            "Subtitle": "A great pair of shoes",
+            "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+            "Description": "Reach new heights of style in Rachel Zoe's skyscraper platform sandals, with retro-now styling that will work with all your day and night faves. Imported.",
+            "Price": {
+              "PriceValue": "$99.95"
+            },
+            "ProductImages": ["assets\/content\/products\/group_01_shoes.png"],
+            "Sizes": ["7", "8", "9", "10"],
+            "ProductColors": [
+              {
+                "ColorName": "Orange",
+                "ColorValue": "#c45b27"
+              },
+              {
+                "ColorName": "Black",
+                "ColorValue": "#000000"
+              }],
+            "Reviews": [
+              {
+                "ReviewRating": 5,
+                "ReviewText": "Excellent."
+              },
+              {
+                "ReviewRating": 4,
+                "ReviewText": "Great."
+              },
+              {
+                "ReviewRating": 3,
+                "ReviewText": "Good."
+              },
+              {
+                "ReviewRating": 2,
+                "ReviewText": "Meh."
+              }]
+          }, {
+            "Name": "Green beads necklace",
+            "Subtitle": "The necklace that goes with everything",
+            "Description": "Green bead necklace. 10 stranded pearl necklace with silver colour decorative bead detail. Add a bit of colour to any outfit with this necklace.",
+            "Price": {
+              "PriceValue": "$9.95"
+            },
+            "ProductImages": ["assets\/content\/products\/group_01_necklace_01.png"],
+            "Sizes": [],
+            "ProductColors": [
+              {
+                "ColorName": "Green",
+                "ColorValue": "#70a700"
+              },
+              {
+                "ColorName": "Blue",
+                "ColorValue": "#008aa7"
+              }],
+            "Reviews": [
+              {
+                "ReviewRating": 5,
+                "ReviewText": "Excellent."
+              },
+              {
+                "ReviewRating": 4,
+                "ReviewText": "Great."
+              },
+              {
+                "ReviewRating": 3,
+                "ReviewText": "Good."
+              },
+              {
+                "ReviewRating": 2,
+                "ReviewText": "Meh."
+              }]
+          }, {
+            "Name": "Blue stone necklace",
+            "Subtitle": "The necklace that goes with everything",
+            "Description": "Ever so elegant and feminine, this double strand of fine emerald beads with diamond clasp is amazing. Over 190 carats of fine bright faceted emerald green beads strung beautifully with an exquisite \u2018bow\u2019 style 18k white gold clasp with over a third of a carat of diamonds.",
+            "Price": {
+              "PriceValue": "$19.95"
+            },
+            "ProductImages": ["assets\/content\/products\/group_01_necklace_02.png"],
+            "Sizes": [],
+            "ProductColors": [
+              {
+                "ColorName": "Blue",
+                "ColorValue": "#7ce9fa"
+              },
+              {
+                "ColorName": "Pink",
+                "ColorValue": "#fa7c7c"
+              }],
+            "Reviews": [
+              {
+                "ReviewRating": 5,
+                "ReviewText": "Excellent."
+              },
+              {
+                "ReviewRating": 4,
+                "ReviewText": "Great."
+              },
+              {
+                "ReviewRating": 3,
+                "ReviewText": "Good."
+              },
+              {
+                "ReviewRating": 2,
+                "ReviewText": "Meh."
+              }]
+          }, {
+            "Name": "Red beads necklace",
+            "Subtitle": "The necklace that goes with everything",
+            "Description": "Give your style a personality and attitude with this exotic tropical surfer necklace. Hand-crafted white puka shell chip beads, barrel style clasp.",
+            "Price": {
+              "PriceValue": "$14.95"
+            },
+            "ProductImages": ["assets\/content\/products\/group_01_necklace_03.png"],
+            "Sizes": [],
+            "ProductColors": [
+              {
+                "ColorName": "Red",
+                "ColorValue": "#f20810"
+              },
+              {
+                "ColorName": "Green",
+                "ColorValue": "#08f23f"
+              },
+              {
+                "ColorName": "Orange",
+                "ColorValue": "#f29208"
+              }],
+            "Reviews": [
+              {
+                "ReviewRating": 5,
+                "ReviewText": "Excellent."
+              },
+              {
+                "ReviewRating": 4,
+                "ReviewText": "Great."
+              },
+              {
+                "ReviewRating": 3,
+                "ReviewText": "Good."
+              },
+              {
+                "ReviewRating": 2,
+                "ReviewText": "Meh."
+              }]
+          }]
+      }, {
+        "Time": 32,
+        "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+        "Title": "Product Group 2",
+        "Thumbnail": "assets\/content\/products\/group_02.png",
+        "Subtitle": "A glamorous swimsuit set",
+        "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas venenatis sollicitudin nisl, eu aliquam ligula pellentesque ut. Sed in odio justo. Proin nec massa at tellus ullamcorper vestibulum. Proin ac lacus in nisi consequat tempor ac et nisl. Donec purus eros, porttitor eget lectus sed, convallis malesuada velit.",
+        "Products": [{
+            "Name": "Swim suit top",
+            "Subtitle": "A glamorous swim suit top",
+            "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+            "Description": "A double-tiered bandeau bikini top featuring a vibrant floral print. Elasticized trim. Removable bra cups. Optional neck strap. Partially lined. Knit.",
+            "Price": {
+              "PriceValue": "$39.95"
+            },
+            "ProductImages": ["assets\/content\/products\/group_02_top.png"],
+            "Sizes": ["XS", "S", "M", "L"],
+            "ProductColors": [],
+            "Reviews": []
+          }, {
+            "Name": "Swim suit bottom",
+            "Subtitle": "The perfect swim suit bottom",
+            "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+            "Description": "A low rise bikini bottom featuring ruched sides. Elasticized trim. Fully lined. Moderate coverage. Knit.",
+            "Price": {
+              "PriceValue": "$49.95"
+            },
+            "ProductImages": ["assets\/content\/products\/group_02_bottom.png"],
+            "Sizes": ["XS", "S", "M", "L"],
+            "ProductColors": [],
+            "Reviews": []
+          }, {
+            "Name": "High heel shoes",
+            "Subtitle": "A great pair of shoes",
+            "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+            "Description": "Take a walk on the wild side with these daring platform sandals Peep toe front, T-strap construction, gold accents platform and wrapped heel Finished with padded insole and adjustable ankle strap with buckle.",
+            "Price": {
+              "PriceValue": "$99.95"
+            },
+            "ProductImages": ["assets\/content\/products\/group_02_shoes.png"],
+            "Sizes": ["7", "8", "9", "10"],
+            "ProductColors": [
+              {
+                "ColorName": "Orange",
+                "ColorValue": "#c45b27"
+              },
+              {
+                "ColorName": "Black",
+                "ColorValue": "#000000"
+              }],
+            "Reviews": []
+          }, {
+            "Name": "Orange dangle earrings",
+            "Subtitle": "The ear rings that go with everything",
+            "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+            "Description": "Lightweight and feminine, the bold orange shells on these dangle earrings move with noticeable grace as you work the crowd!",
+            "Price": {
+              "PriceValue": "$24.95"
+            },
+            "ProductImages": ["assets\/content\/products\/group_02_earrings.png"],
+            "Sizes": [],
+            "ProductColors": [
+              {
+                "ColorName": "Orange",
+                "ColorValue": "#f29208"
+              },
+              {
+                "ColorName": "Blue",
+                "ColorValue": "#7ce9fa"
+              },
+              {
+                "ColorName": "Red",
+                "ColorValue": "#f20810"
+              }],
+            "Reviews": []
+          }]
+      }, {
+        "Time": 50,
+        "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+        "Title": "Product Group 3",
+        "Thumbnail": "assets\/content\/products\/group_03.png",
+        "Subtitle": "A glamorous swimsuit set",
+        "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas venenatis sollicitudin nisl, eu aliquam ligula pellentesque ut. Sed in odio justo. Proin nec massa at tellus ullamcorper vestibulum. Proin ac lacus in nisi consequat tempor ac et nisl. Donec purus eros, porttitor eget lectus sed, convallis malesuada velit.",
+        "Products": [{
+            "Name": "Swim suit top",
+            "Subtitle": "A glamorous swim suit top",
+            "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+            "Description": "A bandeau bikini top featuring a banded front. Removable padding. Side boning. Optional adjustable straps. Adjustable back closure. Fully lined. Knit. Lightweight.",
+            "Price": {
+              "PriceValue": "$59.95"
+            },
+            "ProductImages": ["assets\/content\/products\/group_03_top.png"],
+            "Sizes": ["XS", "S", "M", "L"],
+            "ProductColors": [{
+                "ColorName": "Blue",
+                "ColorValue": "#0c53cf"
+              }, {
+                "ColorName": "Orange",
+                "ColorValue": "#cf910c"
+              }, {
+                "ColorName": "Red",
+                "ColorValue": "#cf0c0c"
+              }, {
+                "ColorName": "Black",
+                "ColorValue": "#000000"
+              }],
+            "Reviews": []
+          }, {
+            "Name": "Swim suit bottom",
+            "Subtitle": "The perfect swim suit bottom",
+            "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+            "Description": "A cheeky bikini bottom featuring a vibrant floral print and ruffle trim. Elasticized trim. Fully lined. Minimal coverage. Knit. Machine wash cold, dry flat. Imported.",
+            "Price": {
+              "PriceValue": "$55.95"
+            },
+            "ProductImages": ["assets\/content\/products\/group_03_bottom.png"],
+            "Sizes": ["XS", "S", "M", "L"],
+            "ProductColors": [{
+                "ColorName": "Blue",
+                "ColorValue": "#0c53cf"
+              }, {
+                "ColorName": "Orange",
+                "ColorValue": "#cf910c"
+              }, {
+                "ColorName": "Red",
+                "ColorValue": "#cf0c0c"
+              }, {
+                "ColorName": "Black",
+                "ColorValue": "#000000"
+              }],
+            "Reviews": []
+          }, {
+            "Name": "Blouse",
+            "Subtitle": "A chic blouse",
+            "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+            "Description": "An open-knit pocket poncho featuring a fringed hem. Round neckline, unlined and lightweight. Hand wash. Imported.",
+            "Price": {
+              "PriceValue": "$79.95"
+            },
+            "ProductImages": ["assets\/content\/products\/group_03_blouse.png"],
+            "Sizes": ["XS", "S", "M", "L"],
+            "ProductColors": [{
+                "ColorName": "Blue",
+                "ColorValue": "#0c53cf"
+              }, {
+                "ColorName": "Orange",
+                "ColorValue": "#cf910c"
+              }, {
+                "ColorName": "Red",
+                "ColorValue": "#cf0c0c"
+              }, {
+                "ColorName": "Black",
+                "ColorValue": "#000000"
+              }],
+            "Reviews": []
+          }, {
+            "Name": "High heel shoes",
+            "Subtitle": "A great pair of shoes",
+            "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+            "Description": "Simple and sweet yet bold and daring heels from the Shiekh collection. The 060 pairs well with a pink hair bow and a solid print mini skirt.",
+            "Price": {
+              "PriceValue": "$199.95"
+            },
+            "ProductImages": ["assets\/content\/products\/group_03_shoes.png"],
+            "Sizes": ["7", "8", "9", "10"],
+            "ProductColors": [{
+                "ColorName": "Brown",
+                "ColorValue": "#845142"
+              }, {
+                "ColorName": "Black",
+                "ColorValue": "#000000"
+              }],
+            "Reviews": []
+          }, {
+            "Name": "Bracelet",
+            "Subtitle": "A great little bracelet",
+            "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+            "Description": "Silk-wrapped bangle set with intricate detailing and Austrian crystals. These bangles are made with real silk and the threaded bangles are very delicate. Due to the fragile nature of silk thread, threaded bangles should be worn with extra care.",
+            "Price": {
+              "PriceValue": "$9.95"
+            },
+            "ProductImages": ["assets\/content\/products\/group_03_bracelet.png"],
+            "Sizes": [],
+            "ProductColors": [],
+            "Reviews": []
+          }, {
+            "Name": "Hair flower",
+            "Subtitle": "A chic accessory",
+            "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+            "Description": "This vibrant artificial dahlia hair flower, of the genuine grade 6 real touch quality can be a perfect companion for your tropical destination. It complements many of the bright colors seen on the high fashion runway for dresses, swimwear and evening wear.",
+            "Price": {
+              "PriceValue": "$12.95"
+            },
+            "ProductImages": ["assets\/content\/products\/group_03_flower.png"],
+            "Sizes": [],
+            "ProductColors": [],
+            "Reviews": []
+          }]
+      }, {
+        "Time": 66,
+        "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+        "Title": "Product Group 4",
+        "Thumbnail": "assets\/content\/products\/group_04.png",
+        "Subtitle": "A glamorous swimsuit set",
+        "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas venenatis sollicitudin nisl, eu aliquam ligula pellentesque ut. Sed in odio justo. Proin nec massa at tellus ullamcorper vestibulum. Proin ac lacus in nisi consequat tempor ac et nisl. Donec purus eros, porttitor eget lectus sed, convallis malesuada velit.",
+        "Products": [{
+            "Name": "Swim suit top",
+            "Subtitle": "A glamorous swim suit top",
+            "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+            "Description": "Bring a little glamour to the deck or the dock. Our Beach Club collection is sure to turn heads with rich colors and chic details. Bikini Top has a flattering sweetheart neckline with removable straps to create a different look (and to prevent tan lines). 74% nylon\/26% spandex. Hand wash. Imported.",
+            "Price": {
+              "PriceValue": "$79.95"
+            },
+            "ProductImages": ["assets\/content\/products\/group_04_top.png"],
+            "Sizes": ["XS", "S", "M", "L"],
+            "ProductColors": [],
+            "Reviews": []
+          }, {
+            "Name": "Swim suit bottom",
+            "Subtitle": "The perfect swim suit bottom",
+            "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+            "Description": "A low rise bikini bottom featuring ruched sides. Elasticized trim. Fully lined. Moderate coverage. Knit.",
+            "Price": {
+              "PriceValue": "$55.95"
+            },
+            "ProductImages": ["assets\/content\/products\/group_04_bottom.png"],
+            "Sizes": ["XS", "S", "M", "L"],
+            "ProductColors": [{
+                "ColorName": "Blue",
+                "ColorValue": "#0c53cf"
+              }, {
+                "ColorName": "Orange",
+                "ColorValue": "#cf910c"
+              }, {
+                "ColorName": "Red",
+                "ColorValue": "#cf0c0c"
+              }, {
+                "ColorName": "Black",
+                "ColorValue": "#000000"
+              }],
+            "Reviews": []
+          }, {
+            "Name": "High heel shoes",
+            "Subtitle": "A great pair of shoes",
+            "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+            "Description": "Reach new heights of style in Rachel Zoe's skyscraper platform sandals, with retro-now styling that will work with all your day and night faves. Imported.",
+            "Price": {
+              "PriceValue": "$99.95"
+            },
+            "ProductImages": ["assets\/content\/products\/group_04_shoes.png"],
+            "Sizes": ["7", "8", "9", "10"],
+            "ProductColors": [{
+                "ColorName": "Orange",
+                "ColorValue": "#c45b27"
+              }, {
+                "ColorName": "Black",
+                "ColorValue": "#000000"
+              }],
+            "Reviews": []
+          }, {
+            "Name": "Colored beads bracelet",
+            "Subtitle": "A great little bracelet",
+            "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+            "Description": "Antique gold-tone brass bangle set with resin bead detailing.",
+            "Price": {
+              "PriceValue": "$19.95"
+            },
+            "ProductImages": ["assets\/content\/products\/group_04_bracelet.png"],
+            "Sizes": [],
+            "ProductColors": [],
+            "Reviews": []
+          }]
+      }, {
+        "Time": 83,
+        "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+        "Title": "Product Group 5",
+        "Thumbnail": "assets\/content\/products\/group_05.png",
+        "Subtitle": "A glamorous swimsuit set",
+        "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas venenatis sollicitudin nisl, eu aliquam ligula pellentesque ut. Sed in odio justo. Proin nec massa at tellus ullamcorper vestibulum. Proin ac lacus in nisi consequat tempor ac et nisl. Donec purus eros, porttitor eget lectus sed, convallis malesuada velit.",
+        "Products": [{
+            "Name": "Colored dress",
+            "Subtitle": "A glamorous dress",
+            "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+            "Description": "It\u2019s a style you already know: our flattering fit-and-flare silhouette, in fluid cotton\/modal knit. 58% pima cotton\/38% rayon-modal\/4% Lycra spandex. Machine wash. Imported.",
+            "Price": {
+              "PriceValue": "$79.95"
+            },
+            "ProductImages": ["assets\/content\/products\/group_05_dress.png"],
+            "Sizes": ["XS", "S", "M", "L"],
+            "ProductColors": [],
+            "Reviews": []
+          }, {
+            "Name": "High heel shoes",
+            "Subtitle": "A great pair of shoes",
+            "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+            "Description": "Take a walk on the wild side with these daring platform sandals Peep toe front, T-strap construction, gold accents platform and wrapped heel Finished with padded insole and adjustable ankle strap with buckle.",
+            "Price": {
+              "PriceValue": "$99.95"
+            },
+            "ProductImages": ["assets\/content\/products\/group_05_shoes.png"],
+            "Sizes": ["7", "8", "9", "10"],
+            "ProductColors": [{
+                "ColorName": "Orange",
+                "ColorValue": "#c45b27"
+              }, {
+                "ColorName": "Black",
+                "ColorValue": "#000000"
+              }],
+            "Reviews": []
+          }, {
+            "Name": "Bracelet",
+            "Subtitle": "A great little bracelet",
+            "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+            "Description": "Gold tone plated 18-piece Bangle Set with Resin and Multi-colored Resin beads.",
+            "Price": {
+              "PriceValue": "$19.95"
+            },
+            "ProductImages": ["assets\/content\/products\/group_05_bracelet.png"],
+            "Sizes": [],
+            "ProductColors": [],
+            "Reviews": []
+          }]
+      }, {
+        "Time": 99,
+        "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+        "Title": "Product Group 6",
+        "Thumbnail": "assets\/content\/products\/group_06.png",
+        "Subtitle": "A glamorous swimsuit set",
+        "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas venenatis sollicitudin nisl, eu aliquam ligula pellentesque ut. Sed in odio justo. Proin nec massa at tellus ullamcorper vestibulum. Proin ac lacus in nisi consequat tempor ac et nisl. Donec purus eros, porttitor eget lectus sed, convallis malesuada velit.",
+        "Products": [{
+            "Name": "Swim suit top",
+            "Subtitle": "A glamorous swim suit top",
+            "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+            "Description": "A bandeau bikini top featuring a banded front. Removable padding. Side boning. Optional adjustable straps. Adjustable back closure. Fully lined. Knit. Lightweight.",
+            "Price": {
+              "PriceValue": "$59.95"
+            },
+            "ProductImages": ["assets\/content\/products\/group_06_top.png"],
+            "Sizes": ["XS", "S", "M", "L"],
+            "ProductColors": [{
+                "ColorName": "Pink",
+                "ColorValue": "#e73ead"
+              }],
+            "Reviews": []
+          }, {
+            "Name": "Swim suit bottom",
+            "Subtitle": "The perfect swim suit bottom",
+            "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+            "Description": "A cheeky bikini bottom featuring a vibrant floral print and ruffle trim. Elasticized trim. Fully lined. Minimal coverage. Knit. Machine wash cold, dry flat. Imported.",
+            "Price": {
+              "PriceValue": "$55.95"
+            },
+            "ProductImages": ["assets\/content\/products\/group_06_bottom.png"],
+            "Sizes": ["XS", "S", "M", "L"],
+            "ProductColors": [{
+                "ColorName": "Yellow",
+                "ColorValue": "#ecce17"
+              }, {
+                "ColorName": "Black",
+                "ColorValue": "#000000"
+              }],
+            "Reviews": []
+          }, {
+            "Name": "High heel shoes",
+            "Subtitle": "A great pair of shoes",
+            "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+            "Description": "Simple and sweet yet bold and daring heels from the Shiekh collection. The 060 pairs well with a pink hair bow and a solid print mini skirt.",
+            "Price": {
+              "PriceValue": "$119.95"
+            },
+            "ProductImages": ["assets\/content\/products\/group_06_shoes.png"],
+            "Sizes": ["7", "8", "9", "10"],
+            "ProductColors": [{
+                "ColorName": "Blue",
+                "ColorValue": "#827ec3"
+              }, {
+                "ColorName": "Orange",
+                "ColorValue": "#c19146"
+              }],
+            "Reviews": []
+          }, {
+            "Name": "Hair flower",
+            "Subtitle": "A chic accessory",
+            "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+            "Description": "This hair flower combines satin and mesh for a beautiful effect. Each flower is securely mounted on a high quality, non-slip hair clip which is fully lined for comfort.",
+            "Price": {
+              "PriceValue": "$12.95"
+            },
+            "ProductImages": ["assets\/content\/products\/group_06_flower.png"],
+            "Sizes": [],
+            "ProductColors": [],
+            "Reviews": []
+          }]
+      }, {
+        "Time": 119,
+        "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+        "Title": "Product Group 7",
+        "Thumbnail": "assets\/content\/products\/group_07.png",
+        "Subtitle": "A glamorous swimsuit set",
+        "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas venenatis sollicitudin nisl, eu aliquam ligula pellentesque ut. Sed in odio justo. Proin nec massa at tellus ullamcorper vestibulum. Proin ac lacus in nisi consequat tempor ac et nisl. Donec purus eros, porttitor eget lectus sed, convallis malesuada velit.",
+        "Products": [{
+            "Name": "Colored long dress",
+            "Subtitle": "A playful dress",
+            "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+            "Description": "This dress is both playful and practical, adding a touch of feminine flair while keeping you covered in and out of the water. 74% nylon\/26% spandex. Hand wash. Imported.",
+            "Price": {
+              "PriceValue": "$79.95"
+            },
+            "ProductImages": ["assets\/content\/products\/group_07_dress.png"],
+            "Sizes": ["XS", "S", "M", "L"],
+            "ProductColors": [],
+            "Reviews": []
+          }, {
+            "Name": "High heel shoes",
+            "Subtitle": "A great pair of shoes",
+            "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+            "Description": "Reach new heights of style in Rachel Zoe's skyscraper platform sandals, with retro-now styling that will work with all your day and night faves. Imported.",
+            "Price": {
+              "PriceValue": "$89.95"
+            },
+            "ProductImages": ["assets\/content\/products\/group_07_shoes.png"],
+            "Sizes": ["7", "8", "9", "10"],
+            "ProductColors": [],
+            "Reviews": []
+          }, {
+            "Name": "Earrings",
+            "Subtitle": "The ear rings that go with everything",
+            "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+            "Description": "Simple and chic, these vibrant high polished metal ear adornments are smooth textured, soft gradient colored, cut out earrings complete with hook lock closures.",
+            "Price": {
+              "PriceValue": "$29.95"
+            },
+            "ProductImages": ["assets\/content\/products\/group_07_earrings.png"],
+            "Sizes": [],
+            "ProductColors": [],
+            "Reviews": []
+          }, {
+            "Name": "Bracelet",
+            "Subtitle": "A great little bracelet",
+            "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+            "Description": "Silk-wrapped bangle set with intricate detailing and Austrian crystals. These bangles are made with real silk and the threaded bangles are very delicate. Due to the fragile nature of silk thread, threaded bangles should be worn with extra care.",
+            "Price": {
+              "PriceValue": "$19.95"
+            },
+            "ProductImages": ["assets\/content\/products\/group_07_bracelet.png"],
+            "Sizes": [],
+            "ProductColors": [],
+            "Reviews": []
+          }]
+      }, {
+        "Time": 136,
+        "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+        "Title": "Product Group 8",
+        "Thumbnail": "assets\/content\/products\/group_08.png",
+        "Subtitle": "A glamorous swimsuit set",
+        "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas venenatis sollicitudin nisl, eu aliquam ligula pellentesque ut. Sed in odio justo. Proin nec massa at tellus ullamcorper vestibulum. Proin ac lacus in nisi consequat tempor ac et nisl. Donec purus eros, porttitor eget lectus sed, convallis malesuada velit.",
+        "Products": [{
+            "Name": "Swim suit top",
+            "Subtitle": "A glamorous swim suit top",
+            "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+            "Description": "A double-tiered bandeau bikini top featuring a vibrant floral print. Elasticized trim. Removable bra cups. Optional neck strap. Partially lined. Knit.",
+            "Price": {
+              "PriceValue": "$59.95"
+            },
+            "ProductImages": ["assets\/content\/products\/group_08_top.png"],
+            "Sizes": ["XS", "S", "M", "L"],
+            "ProductColors": [{
+                "ColorName": "Pink",
+                "ColorValue": "#f44fa2"
+              }, {
+                "ColorName": "Blue",
+                "ColorValue": "#4f89f4"
+              }, {
+                "ColorName": "Yellow",
+                "ColorValue": "#f2f44f"
+              }],
+            "Reviews": []
+          }, {
+            "Name": "Swim suit bottom",
+            "Subtitle": "The perfect swim suit bottom",
+            "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+            "Description": "A low rise bikini bottom featuring ruched sides. Elasticized trim. Fully lined. Moderate coverage. Knit.",
+            "Price": {
+              "PriceValue": "$55.95"
+            },
+            "ProductImages": ["assets\/content\/products\/group_08_bottom.png"],
+            "Sizes": ["XS", "S", "M", "L"],
+            "ProductColors": [],
+            "Reviews": []
+          }, {
+            "Name": "High heel shoes",
+            "Subtitle": "A great pair of shoes",
+            "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+            "Description": "Take a walk on the wild side with these daring platform sandals Peep toe front, T-strap construction, gold accents platform and wrapped heel Finished with padded insole and adjustable ankle strap with buckle.",
+            "Price": {
+              "PriceValue": "$89.95"
+            },
+            "ProductImages": ["assets\/content\/products\/group_08_shoes.png"],
+            "Sizes": ["7", "8", "9", "10"],
+            "ProductColors": [{
+                "ColorName": "Brown",
+                "ColorValue": "#8a543c"
+              }, {
+                "ColorName": "Black",
+                "ColorValue": "#000000"
+              }],
+            "Reviews": []
+          }, {
+            "Name": "Bracelet",
+            "Subtitle": "A great little bracelet",
+            "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+            "Description": "Antique gold-tone brass bangle set with resin bead detailing.",
+            "Price": {
+              "PriceValue": "$13.95"
+            },
+            "ProductImages": ["assets\/content\/products\/group_08_bracelet.png"],
+            "Sizes": [],
+            "ProductColors": [{
+                "ColorName": "Pink",
+                "ColorValue": "#a44a8a"
+              }, {
+                "ColorName": "Blue",
+                "ColorValue": "#4a70a4"
+              }, {
+                "ColorName": "Green",
+                "ColorValue": "#5da44a"
+              }, {
+                "ColorName": "White",
+                "ColorValue": "#FFFFFF"
+              }, {
+                "ColorName": "Black",
+                "ColorValue": "#000000"
+              }],
+            "Reviews": []
+          }]
+      }, {
+        "Time": 155,
+        "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+        "Title": "Product Group 9",
+        "Thumbnail": "assets\/content\/products\/group_09.png",
+        "Subtitle": "A glamorous swimsuit set",
+        "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas venenatis sollicitudin nisl, eu aliquam ligula pellentesque ut. Sed in odio justo. Proin nec massa at tellus ullamcorper vestibulum. Proin ac lacus in nisi consequat tempor ac et nisl. Donec purus eros, porttitor eget lectus sed, convallis malesuada velit.",
+        "Products": [{
+            "Name": "Dress",
+            "Subtitle": "A great dress",
+            "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+            "Description": "It\u2019s a style you already know: our flattering fit-and-flare silhouette, in fluid cotton\/modal knit. 58% pima cotton\/38% rayon-modal\/4% Lycra spandex. Machine wash. Imported.",
+            "Price": {
+              "PriceValue": "$89.95"
+            },
+            "ProductImages": ["assets\/content\/products\/group_09_dress.png"],
+            "Sizes": ["XS", "S", "M", "L"],
+            "ProductColors": [{
+                "ColorName": "Pink",
+                "ColorValue": "#f44fa2"
+              }, {
+                "ColorName": "Black",
+                "ColorValue": "#000000"
+              }],
+            "Reviews": []
+          }, {
+            "Name": "Turquoise fedora",
+            "Subtitle": "The comeback",
+            "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+            "Description": "The fedora makes a comeback and shows up in shocking turquoise. It's a lively statement of color and playfulness. Color blocked head band has a buckle detail.",
+            "Price": {
+              "PriceValue": "$18.95"
+            },
+            "ProductImages": ["assets\/content\/products\/group_09_hat.png"],
+            "Sizes": ["6 5\/8", "7 1\/4", "7 3\/8", "7 1\/2"],
+            "ProductColors": [{
+                "ColorName": "Blue",
+                "ColorValue": "#44c4cf"
+              }, {
+                "ColorName": "Orange",
+                "ColorValue": "#cf9244"
+              }, {
+                "ColorName": "White",
+                "ColorValue": "#FFFFFF"
+              }, {
+                "ColorName": "Black",
+                "ColorValue": "#000000"
+              }],
+            "Reviews": []
+          }, {
+            "Name": "High heel shoes",
+            "Subtitle": "A great pair of shoes",
+            "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+            "Description": "Simple and sweet yet bold and daring heels from the Shiekh collection. The 060 pairs well with a pink hair bow and a solid print mini skirt.",
+            "Price": {
+              "PriceValue": "$89.95"
+            },
+            "ProductImages": ["assets\/content\/products\/group_09_shoes.png"],
+            "Sizes": ["7", "8", "9", "10"],
+            "ProductColors": [{
+                "ColorName": "Orange",
+                "ColorValue": "#c45b27"
+              }, {
+                "ColorName": "Black",
+                "ColorValue": "#000000"
+              }],
+            "Reviews": []
+          }, {
+            "Name": "Bracelet",
+            "Subtitle": "A great little bracelet",
+            "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+            "Description": "Gold tone plated 18-piece Bangle Set with Resin and Multi-colored Resin beads.",
+            "Price": {
+              "PriceValue": "$22.95"
+            },
+            "ProductImages": ["assets\/content\/products\/group_09_bracelet.png"],
+            "Sizes": [],
+            "ProductColors": [],
+            "Reviews": []
+          }]
+      }, {
+        "Time": 177,
+        "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+        "Title": "Product Group 10",
+        "Thumbnail": "assets\/content\/products\/group_10.png",
+        "Subtitle": "A glamorous swimsuit set",
+        "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas venenatis sollicitudin nisl, eu aliquam ligula pellentesque ut. Sed in odio justo. Proin nec massa at tellus ullamcorper vestibulum. Proin ac lacus in nisi consequat tempor ac et nisl. Donec purus eros, porttitor eget lectus sed, convallis malesuada velit.",
+        "Products": [{
+            "Name": "Swim suit top",
+            "Subtitle": "A glamorous swim suit top",
+            "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+            "Description": "Bring a little glamour to the deck or the dock. Our Beach Club collection is sure to turn heads with rich colors and chic details. Bikini Top has a flattering sweetheart neckline with removable straps to create a different look (and to prevent tan lines). 74% nylon\/26% spandex. Hand wash. Imported.",
+            "Price": {
+              "PriceValue": "$89.95"
+            },
+            "ProductImages": ["assets\/content\/products\/group_10_top.png"],
+            "Sizes": ["XS", "S", "M", "L"],
+            "ProductColors": [{
+                "ColorName": "Pink",
+                "ColorValue": "#f44fa2"
+              }, {
+                "ColorName": "Blue",
+                "ColorValue": "#4f89f4"
+              }, {
+                "ColorName": "Yellow",
+                "ColorValue": "#f2f44f"
+              }, {
+                "ColorName": "Black",
+                "ColorValue": "#000000"
+              }],
+            "Reviews": []
+          }, {
+            "Name": "Swim suit bottom",
+            "Subtitle": "The perfect swim suit bottom",
+            "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+            "Description": "A cheeky bikini bottom featuring a vibrant floral print and ruffle trim. Elasticized trim. Fully lined. Minimal coverage. Knit. Machine wash cold, dry flat. Imported.",
+            "Price": {
+              "PriceValue": "$65.95"
+            },
+            "ProductImages": ["assets\/content\/products\/group_10_bottom.png"],
+            "Sizes": ["XS", "S", "M", "L"],
+            "ProductColors": [{
+                "ColorName": "Pink",
+                "ColorValue": "#f44fa2"
+              }, {
+                "ColorName": "Blue",
+                "ColorValue": "#4f89f4"
+              }, {
+                "ColorName": "Yellow",
+                "ColorValue": "#f2f44f"
+              }, {
+                "ColorName": "Black",
+                "ColorValue": "#000000"
+              }],
+            "Reviews": []
+          }, {
+            "Name": "High heel shoes",
+            "Subtitle": "A great pair of shoes",
+            "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+            "Description": "Reach new heights of style in Rachel Zoe's skyscraper platform sandals, with retro-now styling that will work with all your day and night faves. Imported.",
+            "Price": {
+              "PriceValue": "$89.95"
+            },
+            "ProductImages": ["assets\/content\/products\/group_10_shoes.png"],
+            "Sizes": ["7", "8", "9", "10"],
+            "ProductColors": [{
+                "ColorName": "Turquoise",
+                "ColorValue": "#08707c"
+              }, {
+                "ColorName": "Orange",
+                "ColorValue": "#c45b27"
+              }, {
+                "ColorName": "Black",
+                "ColorValue": "#000000"
+              }],
+            "Reviews": []
+          }, {
+            "Name": "Bracelet",
+            "Subtitle": "A great little bracelet",
+            "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+            "Description": "Silk-wrapped bangle set with intricate detailing and Austrian crystals. These bangles are made with real silk and the threaded bangles are very delicate. Due to the fragile nature of silk thread, threaded bangles should be worn with extra care.",
+            "Price": {
+              "PriceValue": "$12.95"
+            },
+            "ProductImages": ["assets\/content\/products\/group_10_bracelet.png"],
+            "Sizes": [],
+            "ProductColors": [],
+            "Reviews": []
+          }, {
+            "Name": "Hair flower",
+            "Subtitle": "A chic accessory",
+            "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+            "Description": "This vibrant artificial dahlia hair flower, of the genuine grade 6 real touch quality can be a perfect companion for your tropical destination. It complements many of the bright colors seen on the high fashion runway for dresses, swimwear and evening wear.",
+            "Price": {
+              "PriceValue": "$8.95"
+            },
+            "ProductImages": ["assets\/content\/products\/group_10_flower.png"],
+            "Sizes": [],
+            "ProductColors": [],
+            "Reviews": []
+          }]
+      }, {
+        "Time": 191,
+        "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+        "Title": "Product Group 11",
+        "Thumbnail": "assets\/content\/products\/group_11.png",
+        "Subtitle": "A glamorous swimsuit set",
+        "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas venenatis sollicitudin nisl, eu aliquam ligula pellentesque ut. Sed in odio justo. Proin nec massa at tellus ullamcorper vestibulum. Proin ac lacus in nisi consequat tempor ac et nisl. Donec purus eros, porttitor eget lectus sed, convallis malesuada velit.",
+        "Products": [{
+            "Name": "Beachwear set",
+            "Subtitle": "The best beachwear set",
+            "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+            "Description": "Spice things up with the Spanish Lullaby Lace Trim T-Back Romper! Fun and unique-printed romper features tie at waist and adjustable ruched sides with ties that are accented with signature gold Luli Fama charms. Hand wash cold.",
+            "Price": {
+              "PriceValue": "$129.95"
+            },
+            "ProductImages": ["assets\/content\/products\/group_11_set.png"],
+            "Sizes": ["XS", "S", "M", "L"],
+            "ProductColors": [],
+            "Reviews": []
+          }, {
+            "Name": "Swim suit top",
+            "Subtitle": "A glamorous swim suit top",
+            "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+            "Description": "A double-tiered bandeau bikini top featuring a vibrant floral print. Elasticized trim. Removable bra cups. Optional neck strap. Partially lined. Knit.",
+            "Price": {
+              "PriceValue": "$89.95"
+            },
+            "ProductImages": ["assets\/content\/products\/group_11_top.png"],
+            "Sizes": ["XS", "S", "M", "L"],
+            "ProductColors": [{
+                "ColorName": "Orange",
+                "ColorValue": "#ea5f41"
+              }, {
+                "ColorName": "Black",
+                "ColorValue": "#000000"
+              }],
+            "Reviews": []
+          }, {
+            "Name": "High heel shoes",
+            "Subtitle": "A great pair of shoes",
+            "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+            "Description": "Take a walk on the wild side with these daring platform sandals Peep toe front, T-strap construction, gold accents platform and wrapped heel Finished with padded insole and adjustable ankle strap with buckle.",
+            "Price": {
+              "PriceValue": "$89.95"
+            },
+            "ProductImages": ["assets\/content\/products\/group_11_shoes.png"],
+            "Sizes": ["7", "8", "9", "10"],
+            "ProductColors": [{
+                "ColorName": "Orange",
+                "ColorValue": "#c45b27"
+              }, {
+                "ColorName": "Turquoise",
+                "ColorValue": "#08707c"
+              }, {
+                "ColorName": "White",
+                "ColorValue": "#ffffff"
+              }],
+            "Reviews": []
+          }, {
+            "Name": "Bracelet",
+            "Subtitle": "A great little bracelet",
+            "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+            "Description": "Antique gold-tone brass bangle set with resin bead detailing.",
+            "Price": {
+              "PriceValue": "$89.95"
+            },
+            "ProductImages": ["assets\/content\/products\/group_11_bracelet.png"],
+            "Sizes": [],
+            "ProductColors": [],
+            "Reviews": []
+          }]
+      }, {
+        "Time": 208,
+        "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+        "Title": "Product Group 12",
+        "Thumbnail": "assets\/content\/products\/group_12.png",
+        "Subtitle": "A glamorous swimsuit set",
+        "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas venenatis sollicitudin nisl, eu aliquam ligula pellentesque ut. Sed in odio justo. Proin nec massa at tellus ullamcorper vestibulum. Proin ac lacus in nisi consequat tempor ac et nisl. Donec purus eros, porttitor eget lectus sed, convallis malesuada velit.",
+        "Products": [{
+            "Name": "Swim suit top",
+            "Subtitle": "A glamorous swim suit top",
+            "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+            "Description": "A bandeau bikini top featuring a banded front. Removable padding. Side boning. Optional adjustable straps. Adjustable back closure. Fully lined. Knit. Lightweight.",
+            "Price": {
+              "PriceValue": "$49.95"
+            },
+            "ProductImages": ["assets\/content\/products\/group_12_top.png"],
+            "Sizes": ["XS", "S", "M", "L"],
+            "ProductColors": [{
+                "ColorName": "Red",
+                "ColorValue": "#f25e62"
+              }, {
+                "ColorName": "Yellow",
+                "ColorValue": "#e2f06f"
+              }],
+            "Reviews": []
+          }, {
+            "Name": "Swim suit bottom",
+            "Subtitle": "The perfect swim suit bottom",
+            "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+            "Description": "A low rise bikini bottom featuring ruched sides. Elasticized trim. Fully lined. Moderate coverage. Knit.",
+            "Price": {
+              "PriceValue": "$48.95"
+            },
+            "ProductImages": ["assets\/content\/products\/group_12_bottom.png"],
+            "Sizes": ["XS", "S", "M", "L"],
+            "ProductColors": [],
+            "Reviews": []
+          }, {
+            "Name": "Blouse",
+            "Subtitle": "A chic blouse",
+            "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+            "Description": "An open-knit pocket poncho featuring a fringed hem. Round neckline, unlined and lightweight. Hand wash. Imported.",
+            "Price": {
+              "PriceValue": "$89.95"
+            },
+            "ProductImages": ["assets\/content\/products\/group_12_blouse.png"],
+            "Sizes": ["XS", "S", "M", "L"],
+            "ProductColors": [{
+                "ColorName": "White",
+                "ColorValue": "#ffffff"
+              }, {
+                "ColorName": "Red",
+                "ColorValue": "#cf0c0c"
+              }, {
+                "ColorName": "Black",
+                "ColorValue": "#000000"
+              }],
+            "Reviews": []
+          }, {
+            "Name": "High heel shoes",
+            "Subtitle": "A great pair of shoes",
+            "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+            "Description": "Simple and sweet yet bold and daring heels from the Shiekh collection. The 060 pairs well with a pink hair bow and a solid print mini skirt.",
+            "Price": {
+              "PriceValue": "$70.95"
+            },
+            "ProductImages": ["assets\/content\/products\/group_12_shoes.png"],
+            "Sizes": ["7", "8", "9", "10"],
+            "ProductColors": [{
+                "ColorName": "Blue",
+                "ColorValue": "#116397"
+              }, {
+                "ColorName": "Black",
+                "ColorValue": "#000000"
+              }],
+            "Reviews": []
+          }, {
+            "Name": "Headband",
+            "Subtitle": "A chic accessory",
+            "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+            "Description": "Spell out your 'it' girl ambitions with these party headband ideas 2012. Your beautiful outfits will scream for these chic accessories provided by the most beloved fashion brands.",
+            "Price": {
+              "PriceValue": "$12.95"
+            },
+            "ProductImages": ["assets\/content\/products\/group_12_headband.png"],
+            "Sizes": [],
+            "ProductColors": [],
+            "Reviews": []
+          }]
+      }, {
+        "Time": 227,
+        "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+        "Title": "Product Group 13",
+        "Thumbnail": "assets\/content\/products\/group_13.png",
+        "Subtitle": "A glamorous swimsuit set",
+        "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas venenatis sollicitudin nisl, eu aliquam ligula pellentesque ut. Sed in odio justo. Proin nec massa at tellus ullamcorper vestibulum. Proin ac lacus in nisi consequat tempor ac et nisl. Donec purus eros, porttitor eget lectus sed, convallis malesuada velit.",
+        "Products": [{
+            "Name": "Swim suit top",
+            "Subtitle": "A glamorous swim suit top",
+            "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+            "Description": "Bring a little glamour to the deck or the dock. Our Beach Club collection is sure to turn heads with rich colors and chic details. Bikini Top has a flattering sweetheart neckline with removable straps to create a different look (and to prevent tan lines). 74% nylon\/26% spandex. Hand wash. Imported.",
+            "Price": {
+              "PriceValue": "$49.95"
+            },
+            "ProductImages": ["assets\/content\/products\/group_13_top.png"],
+            "Sizes": ["XS", "S", "M", "L"],
+            "ProductColors": [],
+            "Reviews": []
+          }, {
+            "Name": "Swim suit bottom",
+            "Subtitle": "The perfect swim suit bottom",
+            "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+            "Description": "A cheeky bikini bottom featuring a vibrant floral print and ruffle trim. Elasticized trim. Fully lined. Minimal coverage. Knit. Machine wash cold, dry flat. Imported.",
+            "Price": {
+              "PriceValue": "$55.95"
+            },
+            "ProductImages": ["assets\/content\/products\/group_13_bottom.png"],
+            "Sizes": ["XS", "S", "M", "L"],
+            "ProductColors": [],
+            "Reviews": []
+          }, {
+            "Name": "High heel shoes",
+            "Subtitle": "A great pair of shoes",
+            "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+            "Description": "Reach new heights of style in Rachel Zoe's skyscraper platform sandals, with retro-now styling that will work with all your day and night faves. Imported.",
+            "Price": {
+              "PriceValue": "$79.95"
+            },
+            "ProductImages": ["assets\/content\/products\/group_13_shoes.png"],
+            "Sizes": ["7", "8", "9", "10"],
+            "ProductColors": [{
+                "ColorName": "Orange",
+                "ColorValue": "#c45b27"
+              }, {
+                "ColorName": "Black",
+                "ColorValue": "#000000"
+              }],
+            "Reviews": []
+          }]
+      }, {
+        "Time": 245,
+        "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+        "Title": "Product Group 14",
+        "Thumbnail": "assets\/content\/products\/group_14.png",
+        "Subtitle": "A glamorous swimsuit set",
+        "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas venenatis sollicitudin nisl, eu aliquam ligula pellentesque ut. Sed in odio justo. Proin nec massa at tellus ullamcorper vestibulum. Proin ac lacus in nisi consequat tempor ac et nisl. Donec purus eros, porttitor eget lectus sed, convallis malesuada velit.",
+        "Products": [{
+            "Name": "Swim suit top",
+            "Subtitle": "A glamorous swim suit top",
+            "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+            "Description": "A double-tiered bandeau bikini top featuring a vibrant floral print. Elasticized trim. Removable bra cups. Optional neck strap. Partially lined. Knit.",
+            "Price": {
+              "PriceValue": "$68.95"
+            },
+            "ProductImages": ["assets\/content\/products\/group_14_top.png"],
+            "Sizes": ["XS", "S", "M", "L"],
+            "ProductColors": [],
+            "Reviews": []
+          }, {
+            "Name": "Swim suit bottom",
+            "Subtitle": "The perfect swim suit bottom",
+            "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+            "Description": "A low rise bikini bottom featuring ruched sides. Elasticized trim. Fully lined. Moderate coverage. Knit.",
+            "Price": {
+              "PriceValue": "$75.95"
+            },
+            "ProductImages": ["assets\/content\/products\/group_14_bottom.png"],
+            "Sizes": ["XS", "S", "M", "L"],
+            "ProductColors": [],
+            "Reviews": []
+          }, {
+            "Name": "High heel shoes",
+            "Subtitle": "A great pair of shoes",
+            "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+            "Description": "Take a walk on the wild side with these daring platform sandals Peep toe front, T-strap construction, gold accents platform and wrapped heel Finished with padded insole and adjustable ankle strap with buckle.",
+            "Price": {
+              "PriceValue": "$97.95"
+            },
+            "ProductImages": ["assets\/content\/products\/group_14_shoes.png"],
+            "Sizes": ["7", "8", "9", "10"],
+            "ProductColors": [{
+                "ColorName": "White",
+                "ColorValue": "#ffffff"
+              }, {
+                "ColorName": "Black",
+                "ColorValue": "#000000"
+              }],
+            "Reviews": []
+          }, {
+            "Name": "Hair flower",
+            "Subtitle": "A chic accessory",
+            "MakeThisYourLookURL": "http:\/\/www.amazon.com\/Luli-Fama-Womens-Caracol-Triangle\/dp\/B00GG7T8CW\/ref=cts_ap_4_cts",
+            "Description": "This hair flower combines satin and mesh for a beautiful effect. Each flower is securely mounted on a high quality, non-slip hair clip which is fully lined for comfort.",
+            "Price": {
+              "PriceValue": "$8.95"
+            },
+            "ProductImages": ["assets\/content\/products\/group_14_flower.png"],
+            "Sizes": [],
+            "ProductColors": [{
+                "ColorName": "White",
+                "ColorValue": "#ffffff"
+              }, {
+                "ColorName": "Yellow",
+                "ColorValue": "#f3e166"
+              }, {
+                "ColorName": "Orange",
+                "ColorValue": "#ff8929"
+              }],
+            "Reviews": []
+          }]
+      }]
+  }, {
+    "ID": 2,
+    "Media": "assets\/content\/media\/video_demo.mp4",
+    "Thumbnail": "assets\/content\/products\/group_02.png",
+    "Name": "Luli Fama 2013 Swimwear Collection",
+    "Description": "Video showcasing the 2013 Luli Fama Swimwear Collection",
+    "ProductGroupTimeLine": null
+  }, {
+    "ID": 3,
+    "Media": "assets\/content\/media\/video_demo.mp4",
+    "Thumbnail": "assets\/content\/products\/group_03.png",
+    "Name": "Luli Fama 2012 Swimwear Collection",
+    "Description": "Video showcasing the 2012 Luli Fama Swimwear Collection",
+    "ProductGroupTimeLine": null
+  }, {
+    "ID": 4,
+    "Media": "assets\/content\/media\/video_demo.mp4",
+    "Thumbnail": "assets\/content\/products\/group_04.png",
+    "Name": "Luli Fama 2011 Swimwear Collection",
+    "Description": "Video showcasing the 2011 Luli Fama Swimwear Collection",
+    "ProductGroupTimeLine": null
+  }, {
+    "ID": 5,
+    "Media": "assets\/content\/media\/video_demo.mp4",
+    "Thumbnail": "assets\/content\/products\/group_05.png",
+    "Name": "Luli Fama 2010 Swimwear Collection",
+    "Description": "Video showcasing the 2010 Luli Fama Swimwear Collection",
+    "ProductGroupTimeLine": null
+  }]

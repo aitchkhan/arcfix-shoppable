@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html ng-app="shopthatvid">
+  <head>
+    <title></title>
+<base url="http://projects.hoanvusolutions.com/test-app/shopthatvid/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <!-- <link href="app.less" type="text/css" rel="stylesheet/less"> -->
+    <link href="assets/inc/style.css" type="text/css" rel="stylesheet">
+    <style type="text/css">
+        #main_page > div {
+            visibility: visible;;
+        }
+    </style>
+  </head>
+  <body>
+
+    <!-- Livereload script for development only (stripped during dist build) -->
+    <!--<script src="http://localhost:35729/livereload.js" data-concat="false"></script>-->
+
+    <!-- JS from Bower Components -->
+    <script src="bower_components/less.js/dist/less-1.6.2.js" data-concat="false"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/lodash/dist/lodash.js"></script>
+    <script src="bower_components/moment/moment.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/angular-ui-utils/ui-utils.js"></script>
+    <!-- Add New Bower Component JS Above -->
+    
+    <!--plugin-->
+    <script type="text/javascript" src="assets/inc/jquery.b.adsplayer.js"></script>
+	<script type="text/javascript" src="assets/inc/jquery.b.adsplayer.stackboxblur.js"></script>
+
+    <!-- Main App JS -->
+    <script src="app.js"></script>
+
+    <!-- Add New Component JS Above -->
+    <script src="app/components/filters.js"></script>
+    <script src="app/components/jquery.b.gridview.js"></script>
+    <script src="app/components/jquery.b.scroller.js"></script>
+    
+    <!-- Add New Directives JS Above -->
+    <script src="app/directives/ad/ad-directive.js"></script>
+    <script src="app/directives/gridview/gridview-directive.js"></script>
+    
+    <!-- Add New Modules JS Above -->
+    <script src="app/modules/ad/view-ad/view-ad-controller.js"></script>
+    <script src="app/modules/ad/main.js"></script>
+    <script src="app/modules/home/home-controller.js"></script>
+    <script src="app/modules/home/main.js"></script>
+    
+    <!-- Add New Services JS Above -->
+    <script src="app/services/ad-service.js"></script>
+    
+    <div ui-view style="height:100%"></div>
+
+  </body>
+</html>
