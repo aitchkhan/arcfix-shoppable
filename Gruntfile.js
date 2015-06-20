@@ -395,15 +395,15 @@ module.exports = function (grunt) {
     },
     less: {
       options: {
-        paths: ["app/styles"]
+        paths: ['app/styles']
       },
       src: {
         // no need for files, the config below should work
         expand: true,
-        cwd:    "app/styles",
-        src:    "*.less",
-        dest:   "app/styles",
-        ext:    ".css"
+        cwd:    'app/styles',
+        src:    '*.less',
+        dest:   'app/styles',
+        ext:    '.css'
       }
     }
   });
