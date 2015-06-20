@@ -1,0 +1,133 @@
+<div id="main_page">
+	<div id="main_head" ng-show="status === 'paused'">
+		<div class="head_back">
+			<div class="button_base button_resume" id="play_video"><div></div></div>
+		</div>
+		<div class="head_title">{{ad.Title}}</div>
+		<div class="head_ctrl"></div>
+	</div>
+	<div id="main_error" class="view_hasHead" ng-show="error">
+	</div>
+	<div id="main_group" class="view_hasHead" ng-show="page === 'group'">
+		<div class="grid_main">
+			<div class="grid_head">
+				<div class="head_ttl">{{group.Subtitle| checkNull:'Untitled'}}</div>
+				<div class="head_img">
+					<img ng-src="{{group.Thumbnail|rectangleThumb}}" />
+				</div>
+				<div class="head_lnk">
+					<a ng-if="group.MakeThisYourLookURL" class="button_buy" 
+						 href="{{group.MakeThisYourLookURL}}" target="_blank">
+						Make this your look!</a>
+				</div>
+				<div class="head_dsc">{{group.Description|| 'No description found'}}</div>
+			</div>
+			<div class="grid_cont">
+				<div class="grid_body">
+					<div class="grid_item" ng-repeat="item in group.Products">
+						<img ng-src="{{item.ProductImages[0]|squareThumb}}" />
+						<div class="grid_item_ttl">{{item.Name||'Untitled'}}</div>
+						<div class="grid_item_dsc">{{item.Description||'No description found'}}</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="main_groups" class="view_hasHead" ng-show="page === 'groups'">
+		<div class="grid_main">
+			<div class="grid_cont">
+				<div class="grid_body">
+					<div class="grid_item" ng-repeat="item in ad.ProductGroupTimeLine">
+						<div class="grid_item_ttl">{{item.Title|| 'Untitled group'}}</div>
+						<img ng-src="{{item.Thumbnail|rectangleThumb}}" />
+						<div class="grid_item_lnk">
+							<a ng-if="item.MakeThisYourLookURL" class="button_buy" 
+								 href="{{item.MakeThisYourLookURL}}" target="_blank">
+								Make this your look!</a>
+						</div>
+						<div class="grid_item_stl">{{item.Subtitle|| 'Untitled'}}</div>
+						<div class="grid_item_dsc">{{item.Description|| 'No description found'}}</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="main_item" class="view_hasHead" ng-show="page === 'item'">
+		<div class="item_main">
+			<div class="item_body">
+				<div class="item_info">
+					<div class="item_sttl">{{product.Subtitle}}</div>
+					<div class="item_price">{{product.Price.PriceValue}}</div>
+					<div class="item_link">
+						<a ng-if="product.MakeThisYourLookURL" class="button_buy" 
+							 href="{{product.MakeThisYourLookURL}}" target="_blank">
+							Make this your look!</a>
+					</div>
+					<div class="item_desc">{{product.Description}}</div>
+					<div class="item_colr cf" ng-if="product.ProductColors.length">
+						<div class="item_colr_titl">Colors</div>
+						<div class="item_colr_cont">
+							<div ng-repeat="item in product.ProductColors" class="item_colr_item" 
+									 style="background: {{item.ColorValue}}"></div>
+						</div>
+					</div>
+					<div class="item_size cf" ng-if="product.Sizes.length">
+						<div class="item_size_titl">Sizes</div>
+						<div class="item_size_cont">
+							<div class="item_size_item" ng-repeat="item in product.Sizes">{{item}}</div>
+						</div>
+					</div>
+				</div>
+				<div class="item_revw" ng-if="showReviews">
+					<div class="item_revw_titl">Reviews</div>
+					<div class="item_revw_rgrp">
+						<div class="item_revw_item" ng-repeat="item in product.Reviews">
+							<div class="item_revw_item_name">{{item.ReviewName}}</div>
+							<div class="item_revw_item_rtng">
+								<div class="item_revw_item_rtng_pos" ng-repeat="rt in item.ReviewRating"></div>
+								<div class="item_revw_item_rtng_neg" 
+										 ng-repeat="k in (0|number:5 - item.ReviewRating) track by $index"></div>
+							</div>
+							<div class="item_revw_item_desc">{{item.ReviewText}}</div>
+						</div>
+					</div>
+				</div>
+				<div class="item_imgs" ng-if="product.ProductImages">
+					<div class="item_imgs_main">
+						<img ng-repeat="item in product.ProductImages" ng-src="{{item}}" 
+								 class="item_thmb" ng-class="{'selected':$index === 0}"/></div>
+					<div class="item_imgs_thmb"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="main_play" video-control="#play_video" ng-show="page === 'video'" b-ad-video data-ad="ad" video-time="time" video-status="status">
+	</div>
+	<div id="main_start" class="view_hasHead" sv-grid-view item-length="segmentsFilter.length" item="sv-grid-item" ng-show="status==='paused'">
+		<div class="grid_main">
+			<div class="grid_head">
+				<div class="head_ttl">{{ad.Name}}</div>
+				<div class="head_img"><img ng-src="{{ad.Thumbnail}}" /></div>
+				<div class="head_dsc">{{ad.Description}}</div>
+			</div>
+			<div class="grid_cont">
+				<div class="grid_body">
+					<div class="grid_col">
+						<div class="grid_item" sv-grid-item ng-repeat="item in segmentsFilter">
+								<img ng-src="{{ad.Thumbnail}}" />
+								<div class="grid_item_ovr">
+										<div class="grid_item_ttl">
+												ID : {{item.id}}
+										</div>
+										<div class="grid_item_dsc">
+											Interval :{{item.interval}} Current time : {{time}}
+										</div>
+								</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div>{{time}}-{{status}}</div> 
