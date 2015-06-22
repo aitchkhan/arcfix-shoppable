@@ -8,21 +8,33 @@ angular.module('shopthatvid')
 	projectGroupUrl: 'data/product_group.json'
 })
 
+.value('NavbarConfig', {
+	showProjectGroup		: false,
+	showItem 				: false,
+	showVideoResumeButton	: false
+})
+
+.value('PageTypes', {
+	HOME			: 'HOME',
+	PRODUCT_GROUP 	: 'PRODUCT_GROUP',
+	ITEM			: 'ITEM'
+})
+
 .config(function ($stateProvider, $urlRouterProvider) {
 
 	$stateProvider
-	.state('ad', {
-		url: '/ad',
+	.state('productGroup', {
+		url: '/pg',
 		template: '<ui-view/>'
 	})
 
-	.state('ad.view', {
+	.state('productGroup.view', {
 		url: '/:id',
-		templateUrl: '../views/view-ad.html',
-		controller: 'ViewAdCtrl',
+		templateUrl: '../views/view-product-group.html',
+		controller: 'ViewProductGroupCtrl',
 		resolve:{
-			ad:function(adService, $stateParams, $state){
-				return adService.getAd($stateParams.id).then(function(res){
+			productGroup:function(adService, $stateParams, $state){
+				return adService.getProductGroup($stateParams.id).then(function(res){
 					if(!res){
 						$state.go('home');
 					}

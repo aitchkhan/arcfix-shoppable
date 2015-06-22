@@ -1,0 +1,13 @@
+<div class="head_back" ng-show="navbar.showVideoResumeButton">
+	<div class="button_base button_resume" id="play_video"><div></div></div>
+</div>
+<div class="head_title">{{productGroup.Title}}</div>
+<div class="head_ctrl">
+	<div class="button_base button_locate" ng-show="navbar.showProjectGroup"> <div></div> Seek and play </div>
+	<div class="button_base button_prev disabled" ng-show="navbar.showProjectGroup" ng-click="showPrevious()"> <div></div> Previous</div>
+	<div class="button_base button_all" ng-show="navbar.showProjectGroup" ng-click="showAllProductGroup()"><div></div> All groups </div>
+	<div class="button_base button_next" ng-show="navbar.showProjectGroup" ng-click="showNext()"><div></div> Next </div>
+	<div class="button_base button_up" ng-show="navbar.showItem" ng-click="gotoProductGroup()"><div></div>Back to group</div>
+	<div class="button_base button_start" ng-show="navbar.showProjectGroup || navbar.showItem" ui-sref="home"><div></div> Home </div>
+	<div class="button_base button_search" ng-click="toggleSearchPanel()"><div></div> Search </div>
+</div>

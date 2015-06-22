@@ -1,0 +1,18 @@
+<div class="search_main" style="right:0px;z-index:2">
+	<div class="search_title">Search</div>
+	<div class="search_box">
+		<input type="text" />
+		<a ng-click="search()" class="button_go"></a>
+	</div>
+	<div class="search_results" sv-scroll item="sv-scroll-item" item-length="searchData.length" ng-if="showSearchResults">
+		<div class="res_item" sv-scroll-item ng-repeat="item in searchData">
+			<a ui-sref="ad.view({id:item.ID})">
+				<img ng-src="{{item.Thumbnail}}" />
+				<div class="res_item_ttl">{{item.Name}}</div>
+				<div class="res_item_dsc">{{item.Description}}</div>
+			</a>
+		</div>
+		<span ng-if="!searchData.length">No results found.</span>
+	</div>
+</div>
+<div class="overlay" ng-click="toggleSearchPanel()" style="width:100%;height:100%;top:0;left:0;z-index:1;position: absolute"></div>

@@ -6,7 +6,7 @@ angular.module('shopthatvid')
 		restrict: 'A',
 		// templateUrl: 'views/ad-video.html',
 		scope: {
-			ad: '=',
+			productGroup: '=',
 			videoStatus: '=',
 			videoTime:'=',
 			videoControl : '@'
@@ -16,9 +16,9 @@ angular.module('shopthatvid')
 			var video=angular.element(elem).adPlayer();
 
 			video.adPlayer('load', {
-				video: scope.ad.Media,
-				poster: scope.ad.Thumbnail,
-				groups: _.map(scope.ad.ProductGroupTimeLine,function (e) {
+				video: scope.productGroup.Media,
+				poster: scope.productGroup.Thumbnail,
+				groups: _.map(scope.productGroup.ProductGroupTimeLine,function (e) {
 					return e.Time || null;
 				})
 			});
