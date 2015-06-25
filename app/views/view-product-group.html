@@ -96,7 +96,7 @@
 	</div>
 	<div id="main_play" video-control="#play_video" ng-show="page === 'video'" b-ad-video data-product-group="currentProductGroupData" current-product-group-index="currentProductGroupIndex" video-time="time" video-status="status">
 	</div>
-	<div id="main_group" class="view_hasHead" sv-grid-view item-length="segmentsFilter.length" item="sv-grid-item" ng-show="status==='paused'">
+	<div id="main_group" class="view_hasHead" sv-grid-view item-length="segmentsFilter.length" is-group="true" item="sv-grid-item" ng-show="status==='paused'">
 		<div class="grid_main">
 			<div class="grid_head">
 				<div class="head_ttl">{{currentProductGroup.Subtitle}}</div>
@@ -112,7 +112,7 @@
 						<div class="grid_item" sv-grid-item ng-repeat="item in currentProductGroup.Products">
 							<img ng-src="{{item.ProductImages[0]}}" style="max-width:100%;"/>
 							<div class="grid_item_ttl">{{ item.Subtitle }}</div>
-							<div class="grid_item_dsc">{{ item.Description }}</div>
+							<div class="grid_item_dsc">{{ item.Description || 'No description found!' }}</div>
 						</div>
 					</div>
 				</div>

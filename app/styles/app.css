@@ -1074,7 +1074,7 @@ html {
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
-  line-height: 1.42857143;
+  /*line-height: 1.42857143;*/
   color: #333333;
   background-color: #ffffff;
 }
@@ -9401,6 +9401,7 @@ a {
 }
 a:hover {
   color: #ffffff;
+  text-decoration: none;
 }
 .queue_item  > td,
 .ctrl_basic_trans {

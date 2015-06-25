@@ -5,8 +5,8 @@ angular.module('shopthatvid')
 .controller('HomeCtrl', function ($scope, $rootScope, adService, PageTypes) {
 
 	$rootScope.changeNavbar(PageTypes.HOME);
-	$scope.productGroup = {};
-	$scope.productGroup.Title = 'Shop that video';
+	$scope.currentProductGroup = {};
+	$scope.currentProductGroup.Title = 'Shop that video';
 
 	adService.getAds().then(function (ads) {
 		if (ads.length) {

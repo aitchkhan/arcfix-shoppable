@@ -6,26 +6,30 @@ angular.module('shopthatvid')
       restrict: 'A',
       scope : {
         itemLength : '=',
-        item : '@'
+        item : '@',
+        isGroup:'='
       },
       link: function (scope, elem) {
-        scope.$watch('itemLength', function(){
-          var loop = $interval(function(){
-                var item = angular.element(elem).find('['+scope.item+']');
-                var grid;
-                if(item.length === scope.itemLength){
-                    $interval.cancel(loop);
-                    grid = angular.element(elem).gridView({ template: 'grid_start', itemWidth: 60 });
-                    // console.log(grid);
-                    grid.gridView('update', true);
-                } else {
-                  $interval.cancel(loop);
-                  grid = angular.element(elem).gridView({ template: 'grid_group', itemWidth: 60 });
-                  // console.log(grid);
-                  grid.gridView('update', true);
-                }
-          },200);
-        }, true);
+        var grid;
+
+        if(scope.isGroup) {
+          grid = angular.element(elem).gridView({ template: 'grid_group', itemWidth: 60, itemHeight: 110 });
+          // console.log(grid);
+          grid.gridView('update', true);
+        } else {
+
+          scope.$watch('itemLength', function(){
+            var loop = $interval(function(){
+                  var item = angular.element(elem).find('['+scope.item+']');
+                  if(item.length === scope.itemLength){
+                      $interval.cancel(loop);
+                      grid = angular.element(elem).gridView({ template: 'grid_start', itemWidth: 60 });
+                      // console.log(grid);
+                      grid.gridView('update', true);
+                  }
+            },200);
+          }, true);
+        }
       }
     };
   })
