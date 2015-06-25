@@ -39,7 +39,7 @@ module.exports = function (grunt) {
       },
       js: {
         files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
-        tasks: ['newer:jshint:all'],
+        // tasks: ['newer:jshint:all'],
         options: {
           livereload: '<%= connect.options.livereload %>'
         }
@@ -411,11 +411,12 @@ module.exports = function (grunt) {
 
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
     if (target === 'dist') {
-      return grunt.task.run(['build', 'connect:dist:keepalive']);
+      return grunt.task.run(['jshint:all', 'build', 'connect:dist:keepalive']);
     }
 
     grunt.task.run([
       'clean:server',
+      'jshint:all', 
       'wiredep',
       'less',
       'concurrent:server',
@@ -432,6 +433,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('test', [
     'clean:server',
+    'jshint:test', 
     'wiredep',
     'less',
     'concurrent:test',

@@ -33,7 +33,7 @@
 			</div>
 		</div>
 	</div>
-	<div id="main_search" ng-if="searchPanel">
+	<div id="main_search" ng-if="searchPanel" ng-class="{'active': searchPanel}">
 		<div ng-include="'views/search.html'" include-replace> </div>
 	</div>
 </div>

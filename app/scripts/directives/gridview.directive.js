@@ -12,14 +12,17 @@ angular.module('shopthatvid')
         scope.$watch('itemLength', function(){
           var loop = $interval(function(){
                 var item = angular.element(elem).find('['+scope.item+']');
+                var grid;
                 if(item.length === scope.itemLength){
                     $interval.cancel(loop);
-                    var grid = angular.element(elem).gridView({ template: 'grid_start', itemWidth: 60 });
+                    grid = angular.element(elem).gridView({ template: 'grid_start', itemWidth: 60 });
                     // console.log(grid);
                     grid.gridView('update', true);
                 } else {
-                  // ### changed by Vinesh
-                  scope.itemLength = angular.copy(item.length);
+                  $interval.cancel(loop);
+                  grid = angular.element(elem).gridView({ template: 'grid_group', itemWidth: 60 });
+                  // console.log(grid);
+                  grid.gridView('update', true);
                 }
           },200);
         }, true);

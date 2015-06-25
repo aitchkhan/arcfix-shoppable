@@ -18,7 +18,6 @@
 			self.options = $.extend({}, $.fn.jScroll.defaults, options);
 
 			self.build();
-			self.attachEvents();
 		},
 		build: function () {
 			var self = this, v = self.vals;
@@ -31,6 +30,7 @@
 			v.mouseDir = v.isV ? 'Y' : 'X';
 			
 			v.hasScroll = false;
+			v.hasMouse = false;
 			v.scrolling = null;
 
 			self.elem.wrapInner('<div class="ctrl_scroll_view ctrl_scroll_' + self.options.mode + '"><div class="ctrl_scroll_cont"></div></div>').append('<div class="ctrl_scroll_trck ctrl_scroll_trck_' + self.options.mode + '"><div class="ctrl_scroll_thmb ctrl_scroll_thmb_' + self.options.mode + ' ctrl_trans"></div></div>');
@@ -49,7 +49,7 @@
 
 			v.thmbP = self.thmb[ v.outerSize ](true);
 
-			self.update();
+			self.attachEvents();
 		},
 		update: function () {
 			var self = this, v = self.vals;
@@ -61,7 +61,7 @@
 				v.contO = Math.min(v.contS - v.viewS, Math.max(0, v.contO));
 				v.thmbS = Math.min(v.viewS - v.thmbP, Math.max(self.options.min, ((v.viewS / v.contS) * v.viewS)));
 
-				self.trck.css({ display: 'none' }).css( v.elemSize, v.viewS + 'px' );
+				self.trck.css({ display: (v.hasMouse ? 'block' : 'none') }).css( v.elemSize, v.viewS + 'px' );
 
 				self.thmb.css( v.elemSize, v.thmbS + 'px' );
 				self.cont.css( v.elemOfst, -v.contO + 'px' );
@@ -81,23 +81,37 @@
 				v.hasScroll = false;
 			}
 		},
-		attachEvents: function () {
-			var self = this;
+		attachEvents: function (hasMouse, e) {
+			var self = this, v = self.vals;
+			
+			if (typeof e === 'undefined') {
+				$(document).on('mouseover.jScroll', 'body', $.proxy(self.attachEvents, self, true));
+				
+				self.elem.on('DOMMouseScroll.jScroll mousewheel.jScroll', $.proxy(self.events.wheel, self));
+				self.view.on('touchstart.jScroll', $.proxy(self.events.start, self));
 
-			//self.thmb.on('mousedown.jScroll', $.proxy(self.events.start, self));
-			//self.trck.on('click.jScroll', $.proxy(self.events.jump, self));
+				if (self.options.autoresize) {
+					$(window).on('resize.jScroll', $.proxy(self.update, self));
+				}
+			} else {
+				$(document).off('mouseover.jScroll');
 
-			self.elem.on('DOMMouseScroll.jScroll mousewheel.jScroll', $.proxy(self.events.wheel, self));
-			self.view.on('touchstart.jScroll', $.proxy(self.events.start, self));
+				if (hasMouse) {
+					v.hasMouse = true;
 
-			if (self.options.autoresize) {
-				$(window).on('resize.jScroll', $.proxy(self.update, self));
+					self.thmb.on('mousedown.jScroll', $.proxy(self.events.start, self));
+					self.trck.on('click.jScroll', $.proxy(self.events.jump, self));
+				}
 			}
+
+			self.update();
 		},
 		scrollTo: function (value) {
 			var self = this, v = self.vals, contOff = Math.min(v.contS - v.viewS, Math.max(0, value));
 
-			self.scrollToggle(true);
+			if (!v.hasMouse) {
+				self.scrollToggle(true);
+			}
 
 			if (contOff != v.contO) {
 				v.contO = contOff;
@@ -137,9 +151,11 @@
 				self.thmb.toggleClass('ctrl_scroll_thmb_d');
 
 				$(document).on( (isMouse ? 'mousemove' : 'touchmove') + '.jScroll', $.proxy(self.events.move, self));
-				$(document).one('mouseup.jScroll touchend.jScroll', $.proxy(self.events.end, self));
+				$(document).on('mouseup.jScroll touchend.jScroll', $.proxy(self.events.end, self));
 
-				//e.preventDefault();
+				if (v.hasMouse) {
+					e.preventDefault();
+				}
 			},
 			move: function (e) {
 				var self = this, v = self.vals, isMouse = (e.type == 'mousemove'), curPos = isMouse ? e['page' + v.mouseDir] : e.originalEvent.touches[0]['screen' + v.mouseDir], d = curPos - v.start, newPos;
@@ -168,21 +184,21 @@
 					self.scrollTo(v.contO - d);
 				}
 			},
-			//jump: function (e) {
-			//	var self = this, v = self.vals;
+			jump: function (e) {
+				var self = this, v = self.vals;
 
-			//	if (e.target == e.delegateTarget) {
-			//		var offset = $(e.target).offset()[ v.elemOfst ], min = offset + v.thmbO, max = min + v.thmbS, newPos;
+				if (e.target == e.delegateTarget) {
+					var offset = $(e.target).offset()[ v.elemOfst ], min = offset + v.thmbO, max = min + v.thmbS, newPos;
 
-			//		if (e['page' + v.mouseDir] > max) {
-			//			newPos = (v.thmbO + v.thmbS) * v.ratio;
-			//		} else {
-			//			newPos = (v.thmbO - v.thmbS) * v.ratio;
-			//		}
+					if (e['page' + v.mouseDir] > max) {
+						newPos = (v.thmbO + v.thmbS) * v.ratio;
+					} else {
+						newPos = (v.thmbO - v.thmbS) * v.ratio;
+					}
 					
-			//		self.scrollTo(newPos);
-			//	}
-			//},
+					self.scrollTo(newPos);
+				}
+			},
 			end: function (e) {
 				var self = this;
 				self.thmb.toggleClass('ctrl_scroll_thmb_d');

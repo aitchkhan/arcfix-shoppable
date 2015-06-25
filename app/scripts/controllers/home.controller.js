@@ -5,6 +5,8 @@ angular.module('shopthatvid')
 .controller('HomeCtrl', function ($scope, $rootScope, adService, PageTypes) {
 
 	$rootScope.changeNavbar(PageTypes.HOME);
+	$scope.productGroup = {};
+	$scope.productGroup.Title = 'Shop that video';
 
 	adService.getAds().then(function (ads) {
 		if (ads.length) {
@@ -17,8 +19,25 @@ angular.module('shopthatvid')
 
 	$scope.searchPanel = false;
 	
+	// $(document).ready(function(){
+	// 	$( ".search_main" ).css('right', '-500px');
+	// })
+
 	$scope.toggleSearchPanel = function(){
 		$scope.searchPanel = !$scope.searchPanel;
+		// if($scope.searchPanel) {
+		// 	$( ".search_main" ).animate({
+		// 		right: "0px"
+		// 	}, 200, function() {
+		// 		// Animation complete.
+		// 	});
+		// } else {
+		// 	$( ".search_main" ).animate({
+		// 		right: "-500px"
+		// 	}, 400, function() {
+		// 		// Animation complete.
+		// 	});
+		// }
 	};
 
 	$scope.search = function () {

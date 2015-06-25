@@ -25,7 +25,6 @@
 			self.orig.addClass(self.options.template);
 
 			self.cont = self.orig.find('.grid_cont').jScroll({ mode: 'h', pad: 23, autoresize: false });
-			self.cont = self.orig.find('.grid_cont');
 			self.body = self.orig.find('.grid_body');
 			self.item = self.orig.find('.grid_item');
 			
@@ -54,7 +53,7 @@
 						$(this).unwrap();
 					}
 				});
-				   	 
+				    
 				for(var i = 0; i < self.item.length; i += ct) {
 					c++;
 					self.item.slice(i, i+ct).wrapAll('<div class="grid_col" style="width: ' + v.itemW + 'px;"></div>');

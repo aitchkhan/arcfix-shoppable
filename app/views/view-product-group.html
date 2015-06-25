@@ -7,15 +7,15 @@
 	<div id="main_group" class="view_hasHead" ng-show="page === 'group'">
 		<div class="grid_main">
 			<div class="grid_head">
-				<div class="head_ttl">{{productGroup.Subtitle| checkNull:'Untitled'}}</div>
+				<div class="head_ttl">{{currentProductGroup.Subtitle| checkNull:'Untitled'}}</div>
 				<div class="head_img">
-					<img ng-src="{{productGroup.Thumbnail|rectangleThumb}}" />
+					<img ng-src="{{currentProductGroup.Thumbnail|rectangleThumb}}" />
 				</div>
 				<div class="head_lnk">
-					<a class="button_buy" href="{{productGroup.MakeThisYourLookURL}}" target="_blank">
+					<a class="button_buy" href="{{currentProductGroup.MakeThisYourLookURL}}" target="_blank">
 						Make this your look!</a>
 				</div>
-				<div class="head_dsc">{{productGroup.Description|| 'No description found'}}</div>
+				<div class="head_dsc">{{currentProductGroup.Description|| 'No description found'}}</div>
 			</div>
 			<div class="grid_cont">
 				<div class="grid_body">
@@ -94,38 +94,32 @@
 			</div>
 		</div>
 	</div>
-	<div id="main_play" video-control="#play_video" ng-show="page === 'video'" b-ad-video data-product-group="currentProductGroupData" video-time="time" video-status="status">
+	<div id="main_play" video-control="#play_video" ng-show="page === 'video'" b-ad-video data-product-group="currentProductGroupData" current-product-group-index="currentProductGroupIndex" video-time="time" video-status="status">
 	</div>
-	<div id="main_start" class="view_hasHead" sv-grid-view item-length="segmentsFilter.length" item="sv-grid-item" ng-show="status==='paused'">
+	<div id="main_group" class="view_hasHead" sv-grid-view item-length="segmentsFilter.length" item="sv-grid-item" ng-show="status==='paused'">
 		<div class="grid_main">
 			<div class="grid_head">
-				<div class="head_ttl">{{currentProductGroupData.Name}}</div>
-				<div class="head_img"><img ng-src="{{currentProductGroupData.Thumbnail}}" /></div>
+				<div class="head_ttl">{{currentProductGroup.Subtitle}}</div>
+				<div class="head_img"><img ng-src="{{currentProductGroup.Thumbnail}}" /></div>
 				<div class="grid_item_lnk">
-					<a class="button_buy" href="{{item.MakeThisYourLookURL}}" target="_blank"> Make this your look!</a>
+					<a class="button_buy" href="{{currentProductGroup.MakeThisYourLookURL}}" target="_blank"> Make this your look!</a>
 				</div>
-				<div class="head_dsc">{{currentProductGroupData.Description}}</div>
+				<div class="head_dsc">{{currentProductGroup.Description}}</div>
 			</div>
 			<div class="grid_cont">
 				<div class="grid_body">
 					<div class="grid_col">
 						<div class="grid_item" sv-grid-item ng-repeat="item in currentProductGroup.Products">
 							<img ng-src="{{item.ProductImages[0]}}" style="max-width:100%;"/>
-							<div class="grid_item_ovr">
-								<div class="grid_item_ttl">
-										ID : {{item.id}}
-								</div>
-								<div class="grid_item_dsc">
-									Interval :{{item.interval}} Current time : {{time}}
-								</div>
-							</div>
+							<div class="grid_item_ttl">{{ item.Subtitle }}</div>
+							<div class="grid_item_dsc">{{ item.Description }}</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div id="main_search" ng-show="searchPanel">
+	<div id="main_search" ng-if="searchPanel" ng-class="{'active': searchPanel}">
 		<div ng-include="'views/search.html'"> </div>
 	</div>
 </div>

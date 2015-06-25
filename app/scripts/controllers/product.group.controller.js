@@ -2,16 +2,19 @@
 
 angular.module('shopthatvid')
 
-.controller('ViewProductGroupCtrl', function ($scope, $rootScope, productGroup, PageTypes, adService) {
+.controller('ViewProductGroupCtrl', function ($scope, $rootScope, $stateParams, productGroup, PageTypes, adService) {
 	// update the navigation
 	$rootScope.changeNavbar(PageTypes.PRODUCT_GROUP);
 	
 	$scope.page = 'video';
 	$scope.currentProductGroupData = productGroup;
 
-	var currentProductGroupIndex = 0;
-	console.log('currentProductGroupIndex: ', currentProductGroupIndex);
-	$scope.currentProductGroup = $rootScope.productGroups.ProductGroupTimeLine[0];
+	$scope.currentProductGroupIndex = 0;
+	if(angular.isNumber(parseInt($stateParams.id))) {
+		$scope.currentProductGroupIndex = parseInt($stateParams.id);
+	}
+	console.log('$scope.currentProductGroupIndex: ', $stateParams.id);
+	$scope.currentProductGroup = $rootScope.productGroups.ProductGroupTimeLine[$stateParams.id];
 
 	$scope.error = false;
 	$scope.time = 0;
@@ -29,17 +32,36 @@ angular.module('shopthatvid')
 	});
 
 	$scope.showPrevious = function() {
-		$scope.currentProductGroup = currentProductGroupIndex-1 >=0 ?$rootScope.productGroups.ProductGroupTimeLine[currentProductGroupIndex-1]:undefined;
+		if($scope.currentProductGroupIndex-1 >=0) {
+			$scope.currentProductGroupIndex--;
+			$scope.currentProductGroup = $rootScope.productGroups.ProductGroupTimeLine[$scope.currentProductGroupIndex];	
+		}
 	};
 
 	$scope.showNext = function() {
-		$scope.currentProductGroup = currentProductGroupIndex+1 < $rootScope.productGroups.ProductGroupTimeLine.length?$rootScope.productGroups.ProductGroupTimeLine[currentProductGroupIndex+1]:undefined;
+		if($rootScope.productGroups.ProductGroupTimeLine && $scope.currentProductGroupIndex+1 < $rootScope.productGroups.ProductGroupTimeLine.length) {
+			$scope.currentProductGroupIndex++;
+			$scope.currentProductGroup = $rootScope.productGroups.ProductGroupTimeLine[$scope.currentProductGroupIndex];
+		}
 	};
 
 	$scope.searchPanel = false;
 	
 	$scope.toggleSearchPanel = function(){
 		$scope.searchPanel = !$scope.searchPanel;
+		// if($scope.searchPanel) {
+		// 	$('.search_main').animate({
+		// 		right: '0px'
+		// 	}, 200, function() {
+		// 		// Animation complete.
+		// 	});
+		// } else {
+		// 	$('.search_main').animate({
+		// 		right: '-500px'
+		// 	}, 400, function() {
+		// 		// Animation complete.
+		// 	});
+		// }
 	};
 
 	$scope.search = function () {
@@ -49,6 +71,14 @@ angular.module('shopthatvid')
 			}
 		});
 	};
+
+	$scope.playControlInit = function() {
+		// console.log('el init: ');
+		$('#play_video').on('click', function(event){
+			$rootScope.$broadcast('playVideo');
+		});
+	};
+
 	//      $scope.group=_.first(productGroup.ProductGroupTimeLine);
 	//      $scope.product=_.first($scope.group.Products);
 	//      $scope.showReviews = false;

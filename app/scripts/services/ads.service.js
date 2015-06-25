@@ -16,7 +16,7 @@ angular.module('shopthatvid')
 				method: 'GET', url: GLOBALS.adUrl
 			})
 			.then(function (res) {
-				var data =  _.find(res.data,{ID:parseInt(id)});
+				var data =  _.find(res.data,{ID : parseInt(1)});
 				$rootScope.productGroups = data;
 				return data;
 			});

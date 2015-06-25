@@ -9,6 +9,7 @@ angular.module('shopthatvid')
 			productGroup: '=',
 			videoStatus: '=',
 			videoTime:'=',
+			currentProductGroupIndex:'=',
 			videoControl : '@'
 		},
 		link: function (scope, elem) {
@@ -17,7 +18,7 @@ angular.module('shopthatvid')
 
 			video.adPlayer('load', {
 				video: scope.productGroup.Media,
-				poster: scope.productGroup.Thumbnail,
+				poster: scope.productGroup.ProductGroupTimeLine[scope.currentProductGroupIndex-1].Thumbnail,
 				groups: _.map(scope.productGroup.ProductGroupTimeLine,function (e) {
 					return e.Time || null;
 				})
@@ -43,10 +44,17 @@ angular.module('shopthatvid')
 				angular.element(elem).on('click', function(){
 					control();
 				});
-				console.log(scope.videoControl);
-				angular.element(scope.videoControl).on('click', function(){
+				
+				// console.log(scope.videoControl);
+				
+				// angular.element(scope.videoControl).on('click', function(){
+				// 	control();
+				// });
+				$rootScope.$on('playVideo', function(){
+					// console.log('event playVideo received...');
 					control();
 				});
+				
 				videoElm[0].addEventListener('timeupdate', function(){
 					scope.videoTime=parseInt(videoElm[0].currentTime);
 					scope.$apply();
