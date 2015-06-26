@@ -11,6 +11,16 @@ angular.module('shopthatvid')
 				return res.data;
 			});
 		},
+		getAd:function(videoId){
+			return $http({
+				method: 'GET', url: GLOBALS.adUrl
+			})
+			.then(function (res) {
+				var data =  _.find(res.data,{ ID : videoId });
+				$rootScope.productGroups = data;
+				return data;
+			});
+		},
 		getProductGroup:function(id){
 			return $http({
 				method: 'GET', url: GLOBALS.adUrl
@@ -21,15 +31,7 @@ angular.module('shopthatvid')
 				return data;
 			});
 		},
-		// getProductGroup:function(){
-		// 	return $http({
-		// 		method: 'GET', url: GLOBALS.projectGroupUrl 
-		// 	})
-		// 	.then(function (res) {
-		// 		return res.data;
-		// 	});
-		// },
-		search: function () {
+		getSearchData: function () {
 			return $http({
 				method: 'GET', url: GLOBALS.searchUrl
 			})

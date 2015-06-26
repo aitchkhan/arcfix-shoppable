@@ -55,7 +55,7 @@
 
 							self.view.start = self.orig.find('#main_start').gridView({ template: 'grid_start', itemWidth: 60 });
 							self.view.group = self.orig.find('#main_group').gridView({ template: 'grid_group', itemWidth: 60, itemHeight: 110 });
-							self.view.groups = self.orig.find('#main_groups').gridView({ template: 'grid_groups', columns: false, itemWitdh: 23 });
+							self.view.groups = self.orig.find('#main_groups').gridView({ template: 'grid_groups', columns: false, itemWidth: 23 });
 							
 							self.view.item = self.orig.find('#main_item');
 							self.view.item.find('.item_main').jScroll({ mode: 'h', pad: 23, autoresize: false });

@@ -3,7 +3,7 @@
 angular.module('shopthatvid')
 
 .constant('GLOBALS', { 
-	adUrl: 'data/ads.json', 
+	adUrl: 'data/ads_fromlive.json', 
 	searchUrl: 'data/search.json',
 	projectGroupUrl: 'data/product_group.json'
 })
@@ -24,6 +24,7 @@ angular.module('shopthatvid')
 
 	$stateProvider
 	.state('productGroup', {
+		// abstract: true,
 		url: '/pg',
 		template: '<ui-view/>'
 	})
@@ -45,7 +46,7 @@ angular.module('shopthatvid')
 	})
 
 	.state('home', {
-		url: '/',
+		url: '/:videoId',
 		templateUrl: '../views/home.html',
 		controller: 'HomeCtrl'
 	});
