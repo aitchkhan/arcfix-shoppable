@@ -112,6 +112,10 @@ angular.module('shopthatvid')
 		return productGroupData;
 	};
 
+	var mockProductGroupsResponse = function(videoId) {
+		
+	};
+
 	return {
 		getAds: function () {
 			return $http({
@@ -147,6 +151,16 @@ angular.module('shopthatvid')
 		},
 		getCurrentProductGroup: function() {
 			return currentProductGroup;
+		},
+		getProductGroups: function(videoId){
+			return $http({
+				method: 'GET', url: GLOBALS.adUrl
+			})
+			.then(function (res) {
+				currentProductGroup = mockProductGroupsResponse(res.data, videoId);
+				currentProduct = undefined;
+				return currentProductGroup;
+			});
 		},
 		getProduct: function(videoId, productGroupId, productId){
 			return $http({
