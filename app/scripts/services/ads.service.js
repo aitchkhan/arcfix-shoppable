@@ -2,7 +2,9 @@
 
 angular.module('shopthatvid')
 .service('adService', function ($http, $rootScope, GLOBALS) {
-	var currentAd, currentProductGroup, currentProduct;
+	this.currentAd = undefined;
+	this.currentProductGroup = undefined;
+	this.currentProduct = undefined;
 
 	var mockAdResponse = function(data, videoId){
 		var adData = _.find(data, function(ad){
@@ -48,9 +50,11 @@ angular.module('shopthatvid')
 			return undefined;
 		}
 
-		var productGroupData = _.find(adData.ProductGroupTimeLine, function(productGroup){
-			return productGroup.ID === parseInt(productGroupId);
-		});
+		// var productGroupData = _.find(adData.ProductGroupTimeLine, function(productGroup){
+		// 	return productGroup.ID === parseInt(productGroupId);
+		// });
+
+		var productGroupData = adData.ProductGroupTimeLine[parseInt(productGroupId)];
 
 		_.each(productGroupData, function(value, key){
 			var oldKey = key;
@@ -112,74 +116,151 @@ angular.module('shopthatvid')
 		return productGroupData;
 	};
 
-	var mockProductGroupsResponse = function(videoId) {
+	var mockProductGroupsResponse = function(data, videoId) {
+		var adData = _.find(data, function(ad){
+			return ad.ID === parseInt(videoId);
+		});
+		if(!adData) {
+			return undefined;
+		}
+
+		_.each(adData, function(value, key){
+			var oldKey = key;
+			if(key === 'ID') {
+				key = 'id';
+			} else {
+				key = key.charAt(0).toLowerCase() + key.slice(1);
+			}
+			adData[key] = value;
+			delete adData[oldKey];
+		});
 		
+		_.each(adData.productGroupTimeLine, function(pg, index) {
+			_.each(pg, function(value, key){ 
+				// console.log('value:', key);
+				var oldKey = key;
+				if(key === 'ID') {
+					pg.id = pg.ID;
+				} else if(key === 'Time' || key === 'Title' || key === 'Subtitle' || key === 'Thumbnail') {
+					key = key.charAt(0).toLowerCase() + key.slice(1);
+					pg[key] = value;
+				} 
+				delete pg[oldKey];
+			});
+		});
+
+		console.log('Mocked productData: ', adData.productGroupTimeLine);
+		return adData.productGroupTimeLine;
 	};
 
 	return {
 		getAds: function () {
 			return $http({
 				method: 'GET', url: GLOBALS.adUrl
-			})
-			.then(function (res) {
-				return res.data;
 			});
 		},
 		getAd: function(videoId){
+			var self = this;
+			$rootScope.currentVideoId = videoId;
 			return $http({
-				method: 'GET', url: GLOBALS.adUrl
-			})
-			.then(function (res) {
-				currentAd = mockAdResponse(res.data, videoId);
-				currentProductGroup = undefined;
-				currentProduct = undefined;
-				return currentAd;
+				method: 'GET', 
+				cache: true,
+				url: GLOBALS.adUrl,
+				transformResponse: function(data, headers){
+					self.currentAd = mockAdResponse(JSON.parse(data), videoId);
+					return self.currentAd;
+				}
 			});
 		},
 		getCurrentAd: function() {
-			return currentAd;
+			if(this.currentAd) {
+				return this.currentAd;
+			} else {
+				return null;
+			}
 		},
 		getProductGroup: function(videoId, productGroupId){
+			var self = this;
+			$rootScope.currentVideoId = videoId;
+			$rootScope.currentProductGroupId = productGroupId;
 			return $http({
-				method: 'GET', url: GLOBALS.adUrl
-			})
-			.then(function (res) {
-				currentProductGroup = mockProductGroupResponse(res.data, videoId, productGroupId);
-				currentProduct = undefined;
-				return currentProductGroup;
+				method: 'GET', 
+				cache: true,
+				url: GLOBALS.adUrl,
+				transformResponse: function(data, headers){
+					self.currentProductGroup = mockProductGroupResponse(JSON.parse(data), videoId, productGroupId);
+					return self.currentProductGroup;
+				}
 			});
 		},
 		getCurrentProductGroup: function() {
-			return currentProductGroup;
+			if(this.currentProductGroup) {
+				return this.currentProductGroup; 
+			} else {
+				return null;
+			}
 		},
 		getProductGroups: function(videoId){
+			var self = this;
+			$rootScope.currentVideoId = videoId;
 			return $http({
-				method: 'GET', url: GLOBALS.adUrl
-			})
-			.then(function (res) {
-				currentProductGroup = mockProductGroupsResponse(res.data, videoId);
-				currentProduct = undefined;
-				return currentProductGroup;
+				method: 'GET', 
+				cache: true,
+				url: GLOBALS.adUrl,
+				transformResponse: function(data, headers){
+					self.currentProductGroups = mockProductGroupsResponse(JSON.parse(data), videoId);
+					return self.currentProductGroups;		
+				}
 			});
 		},
+		getCurrentProductGroups: function(){
+			if(this.currentProductGroups) {
+				return this.currentProductGroups;
+			} else {
+				return null;
+			}
+		},
 		getProduct: function(videoId, productGroupId, productId){
+			var self = this;
+			$rootScope.currentVideoId = videoId;
+			$rootScope.currentProductGroupId = productGroupId;
+			$rootScope.currentProductId = productId;
 			return $http({
-				method: 'GET', url: GLOBALS.adUrl
-			})
-			.then(function (res) {
-				currentProduct = mockProductResponse(res.data, videoId, productGroupId, productId);
-				return currentProduct;
+				method: 'GET', 
+				cache: true,
+				url: GLOBALS.adUrl,
+				transformResponse: function(data, headers){
+					self.currentProduct = mockProductResponse(JSON.parse(data), videoId, productGroupId, productId);
+					return self.currentProduct;
+				}
 			});
 		},
 		getCurrentProduct: function() {
-			return currentProduct;
+			if(this.currentProduct) {
+				return this.currentProduct;
+			} else {
+				return null;
+			}
 		},
-		getSearchData: function () {
+		getSearchData: function (keyword) {
+			var self = this;
 			return $http({
-				method: 'GET', url: GLOBALS.searchUrl
-			})
-			.then(function (res) {
-				return res.data;
+				method: 'GET', 
+				url: GLOBALS.searchUrl,
+				transformResponse: function(data, headers){
+					var currentAd = self.getCurrentAd();
+					if(currentAd && keyword.length>0) {
+						var searchData = _.filter(currentAd.productGroupTimeLine, function(productGroup, index){
+							productGroup.index = index;
+							return productGroup.title.search(new RegExp(keyword, "i")) === 0 || productGroup.subtitle.search(new RegExp(keyword, "i")) === 0;
+						});
+						return searchData;
+					// } else if(keyword.length>0){
+					// 	return data;
+					} else {
+						return [];
+					}
+				}
 			});
 		}
 	};

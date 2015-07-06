@@ -5,30 +5,27 @@ angular.module('shopthatvid')
 		return {
 			restrict: 'A',
 			scope : {
-				itemLength : '=',
-				item : '@',
-				isGroup:'='
+				bodyItems : '=',
+				headItem : '=',
 			},
-			link: function (scope, elem) {
+			link: function (scope, elem, attr) {
 				var grid;
-
-				if(scope.isGroup) {
-					grid = angular.element(elem).gridView({ template: 'grid_group', itemWidth: 60, itemHeight: 110 });
-					// console.log(grid);
-					grid.gridView('update', true);
-				} else {
-					scope.$watch('itemLength', function(){
-						var loop = $interval(function(){
-							var item = angular.element(elem).find('['+scope.item+']');
-							if(item.length === scope.itemLength){
-								$interval.cancel(loop);
-								grid = angular.element(elem).gridView({ template: 'grid_start', itemWidth: 60 });
-								// console.log(grid);
-								grid.gridView('update', true);
-							}
-						},200);
-					}, true);
-				}
+				console.log('scope.headItem', scope.headItem);
+				console.log('scope.bodyItems', scope.bodyItems);
+				grid = angular.element(elem).gridView({ template: attr.templateType, itemWidth: 60, itemHeight: 110 });
+				// console.log(grid);
+				// grid.gridView('update', true);
+				scope.$watch('itemLength', function(){
+					// var loop = $interval(function(){
+						// var item = angular.element(elem).find('['+ scope.item +']');
+						// if(item.length === scope.itemLength){
+							// $interval.cancel(loop);
+							// grid = angular.element(elem).gridView({ template: 'grid_start', itemWidth: 60 });
+							// console.log(grid);
+							grid.gridView('update', true);
+						// }
+					// },200);
+				}, true);
 			}
 		};
 	})

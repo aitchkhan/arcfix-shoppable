@@ -11,14 +11,16 @@ angular.module('shopthatvid')
 .value('NavbarConfig', {
 	showProjectGroup		: false,
 	showItem 				: false,
-	showVideoResumeButton	: false
+	showVideoResumeButton	: false,
+	disableNext				: false,
+	disablePrev				: false
 })
 
 .value('ViewTypes', {
 	HOME			: 'HOME',
 	PRODUCT_GROUP 	: 'PRODUCT_GROUP',
-	PRODUCT_GROUPS	: 'PRODUCT_GROUPS'
-	PRODUCT			: 'PRODUCT'
+	PRODUCT_GROUPS	: 'PRODUCT_GROUPS',
+	PRODUCT_ITEM	: 'PRODUCT_ITEM'
 })
 
 .config(function ($stateProvider, $urlRouterProvider) {
@@ -30,12 +32,16 @@ angular.module('shopthatvid')
 		templateUrl: '../views/home.html',
 		controller: 'HomeCtrl',
 		resolve: { 
-			currentAd:function(adService, $stateParams, $state){
-				return adService.getAd($stateParams.videoId).then(function(res){
+			currentAdResponse:function($rootScope, $stateParams, $state, adService){
+				return adService.getAd($stateParams.videoId)
+				.success(function(res, headers){
 					if(!res){
-						$state.go('error');
+						$rootScope.displayError('Error Occurred while fetchig the video ad content.');
 					}
 					return res;
+				})
+				.error(function(res, headers){
+					$rootScope.displayError();
 				});
 			}
 		}
@@ -46,12 +52,16 @@ angular.module('shopthatvid')
 		templateUrl: '../views/product-group.html',
 		controller: 'ProductGroupCtrl',
 		resolve: { 
-			productGroup:function(adService, $stateParams, $state){
-				return adService.getProductGroup($stateParams.videoId, $stateParams.productGroupId).then(function(res){
+			productGroup: function($rootScope, $stateParams, adService, $state){
+				return adService.getProductGroup($stateParams.videoId, $stateParams.productGroupId)
+				.success(function(res, headers){
 					if(!res){
-						$state.go('error');
+						$rootScope.displayError('Error Occurred while fetchig the video ad content.');
 					}
 					return res;
+				})
+				.error(function(res, headers){
+					$rootScope.displayError();
 				});
 			}
 		}
@@ -62,12 +72,16 @@ angular.module('shopthatvid')
 		templateUrl: '../views/product.html',
 		controller: 'ProductCtrl',
 		resolve: { 
-			productGroup:function(adService, $stateParams, $state){
-				return adService.getProduct($stateParams.videoId, $stateParams.productGroupId, $stateParams.productId ).then(function(res){
+			product:function($rootScope, $stateParams, adService, $state){
+				return adService.getProduct($stateParams.videoId, $stateParams.productGroupId, $stateParams.productId )
+				.success(function(res, headers){
 					if(!res){
-						$state.go('error');
+						$rootScope.displayError('Error Occurred while fetchig the video ad content.');
 					}
 					return res;
+				})
+				.error(function(res, headers){
+					$rootScope.displayError();
 				});
 			}
 		}
@@ -78,12 +92,16 @@ angular.module('shopthatvid')
 		templateUrl: '../views/product-groups.html',
 		controller: 'ProductGroupsCtrl',
 		resolve: { 
-			productGroups:function(adService, $stateParams, $state){
-				return adService.getProductGroups($stateParams.videoId ).then(function(res){
+			productGroups:function($rootScope, $stateParams, adService, $state){
+				return adService.getProductGroups($stateParams.videoId)
+				.success(function(res, headers){
 					if(!res){
-						$state.go('error');
+						$rootScope.displayError('Error Occurred while fetchig the video ad content.');
 					}
 					return res;
+				})
+				.error(function(res, headers){
+					$rootScope.displayError();
 				});
 			}
 		}
@@ -100,7 +118,7 @@ angular.module('shopthatvid')
 	// 	templateUrl: '../views/view-product-group.html',
 	// 	controller: 'ViewProductGroupCtrl',
 	// 	resolve:{
-	// 		productGroup:function(adService, $stateParams, $state){
+	// 		productGroup:function($rootScope, $stateParams, adService, $state){
 	// 			return adService.getProductGroup($stateParams.id).then(function(res){
 	// 				if(!res){
 	// 					$state.go('home');

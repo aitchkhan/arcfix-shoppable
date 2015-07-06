@@ -17,9 +17,9 @@
 	<link rel="stylesheet" href="styles/app.css">
 	<!-- endbuild -->
 	<style type="text/css">
-		#main_page > div {
+		/*#main_page > div {
 			visibility: visible;
-		}
+		}*/
 	</style>
 </head>
 <body ng-app="shopthatvid">
@@ -70,9 +70,28 @@
 	<script type="text/javascript" src="scripts/filters/app.filters.js"></script>
 	<script type="text/javascript" src="scripts/services/ads.service.js"></script>
 	<script type="text/javascript" src="scripts/services/services.js"></script>
+	<script type="text/javascript" src="scripts/controllers/main.controller.js"></script>
 	<script type="text/javascript" src="scripts/controllers/home.controller.js"></script>
 	<script type="text/javascript" src="scripts/controllers/product.group.controller.js"></script>
+	<script type="text/javascript" src="scripts/controllers/product.controller.js"></script>
+	<script type="text/javascript" src="scripts/controllers/product.groups.controller.js"></script>
 	<!-- endbuild -->
-	<div ui-view style="height:100%"></div>
+	<div id="main_page" ng-controller="MainCtrl" ng-cloak>
+		
+		<div id="main_head" ng-show="uiConfig.showMainContent">
+			<div ng-include="'views/navbar.html'" include-replace></div>
+		</div>
+		<div id="main_error" class="view_hasHead" ng-if="error">
+			{{ error }}
+		</div>
+		
+		<div class="" ng-show="uiConfig.showMainContent">
+			<div ui-view style="height:100%"></div>
+		</div>
+		<div id="main_search" ng-class="{open:openSearchPanel}" ng-show="showSearchPanel">
+			<div ng-include="'views/search.html'" include-replace></div>
+		</div>
+		<div id="main_play" ng-show="uiConfig.showVideo" b-video-ad player="player"></div>
+	</div>
 </body>
 </html>

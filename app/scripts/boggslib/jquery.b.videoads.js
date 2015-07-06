@@ -285,19 +285,19 @@
 					    head = self.view.start.find('.grid_head'),
 					    tplt = $('<div class="grid_item">!img!<div class="grid_item_ovr"><div class="grid_item_ttl">!ttl!</div><div class="grid_item_dsc">!dsc!</div></div></div>');
 
-					head.find('.head_ttl').html(data[0].Name);
-					head.find('.head_img').html('<img src="' + data[0].Thumbnail + '" />');
-					head.find('.head_dsc').html(data[0].Description);
+					head.find('.head_ttl').html(data.Name);
+					head.find('.head_img').html('<img src="' + data.Thumbnail + '" />');
+					head.find('.head_dsc').html(data.Description);
 					head.data('id', 0);
 
 					body.html('');
 
-					for (var i = 1; i < data.length; i++ ) {
+					for (var i = 1; i < data.ProductGroupTimeLine.length; i++ ) {
 						var item = tplt.clone();
 
-						item.replaceText( /!img!/gi, '<img src="' + data[i].Thumbnail + '" />');
-						item.find('.grid_item_ttl').replaceText( /!ttl!/gi, data[i].Name);
-						item.find('.grid_item_dsc').replaceText( /!dsc!/gi, data[i].Description);
+						item.replaceText( /!img!/gi, '<img src="' + data.ProductGroupTimeLine[i].Thumbnail + '" />');
+						item.find('.grid_item_ttl').replaceText( /!ttl!/gi, data.ProductGroupTimeLine[i].Title);
+						item.find('.grid_item_dsc').replaceText( /!dsc!/gi, data.ProductGroupTimeLine[i].Description);
 						item.data('id', i);
 
 						item.appendTo(body);
@@ -307,9 +307,9 @@
 				break;
 				
 				case 'play':
-					self.vals.video = id;
+					// self.vals.video = id;
 
-					data = self.options.adData[self.vals.video];
+					data = self.options.adData;
 
 					// Header
 					self.back.css({ display: self.options.map[self.view.current].back == null ? 'none': 'block' });

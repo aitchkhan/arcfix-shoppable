@@ -2,38 +2,27 @@
 
 angular.module('shopthatvid')
 
-.controller('ProductGroupCtrl', function ($scope, $rootScope, $stateParams, productGroup, ViewTypes, adService) {
+.controller('ProductGroupsCtrl', function ($scope, $rootScope, $stateParams, productGroups, ViewTypes, adService) {
 	// update the navigation
-	if(0 === parseInt($rootScope.currentProductGroupId) ) {
-		$rootScope.navbar.disablePrev = true;
-	}
+	$rootScope.changeNavbar(ViewTypes.PRODUCT_GROUPS);
+	
+	console.log('productGroups', productGroups);
 	var currentAd = adService.getCurrentAd();
 	if(!currentAd) {
 		adService.getAd($stateParams.videoId)
 		.success(function(currentAd, headers){
 			$rootScope.$broadcast('adDataLoaded', productGroup);
-			if(currentAd && currentAd.productGroupTimeLine.length - 1 === parseInt($rootScope.currentProductGroupId) ) {
-				$rootScope.navbar.disableNext = true;
-			} else {
-				$rootScope.navbar.disableNext = false;
-			}
+			$rootScope.navbar.headerTitle = currentAd.name;
 		})
 		.error(function(err, headers){
 			console.log('error while fetching ad data.');
 		})
 
 	} else {
-		if(currentAd && currentAd.productGroupTimeLine.length - 1 === parseInt($rootScope.currentProductGroupId) ) {
-			$rootScope.navbar.disableNext = true;
-		} else {
-			$rootScope.navbar.disableNext = false;
-		}
+		$rootScope.navbar.headerTitle = currentAd.name;
 	}
-
-	$rootScope.changeNavbar(ViewTypes.PRODUCT_GROUP);
-
-	$scope.currentProductGroup = productGroup.data;
-	$rootScope.navbar.headerTitle = $scope.currentProductGroup.title;
+	// $scope.page = 'video';
+	// $scope.productGroups = productGroups;
 
 	// $scope.currentProductGroupIndex = 0;
 	// if(angular.isNumber(parseInt($stateParams.id))) {

@@ -1,30 +1,37 @@
-<div id="main_page">
-	<div id="main_head">
-		<div ng-include="'views/navbar.html'" include-replace></div>
-	</div>
-	<div id="main_error" class="view_hasHead" ng-if="error">
-		{{error}}
-	</div>
-	<div id="main_start" class="view_hasHead" sv-grid-view item-length="ads.length" item="sv-grid-item">
-		<div class="grid_main">
-			<div class="grid_head">
-				<a ui-sref="productGroup.view({id:currentAd.ID})">
-					<div class="head_ttl">{{currentAd.Name}}</div>
-					<div class="head_img"><img ng-src="{{currentAd.Thumbnail}}" /></div>
-					<div class="head_dsc">{{currentAd.Description}}</div>
-				</a>
+<div id="main_start" class="view_hasHead grid_start" asv-grid-view template-type="grid_start" head-item="currentAd" body-items="currentAd.productGroupTimeLine" ng-init="initStartView()" style="height:100%">
+	<!-- <div class="grid_main">
+		<div class="grid_head">
+			<div class="head_ttl"></div>
+			<div class="head_img"></div>
+			<div class="head_dsc"></div>
+		</div>
+		<div class="grid_cont">
+			<div class="grid_body">
+				<div class="grid_item"></div>
 			</div>
-			<div class="grid_cont">
-				<div class="grid_body">
-					<div class="grid_item" sv-grid-item ng-repeat="item in ads">
-						<a ui-sref="productGroup.view({id:item.ID})">
-							<img ng-src="{{item.Thumbnail}}" />
+		</div>
+	</div> -->
+	<!-- <a ui-sref="productGroup({videoId:1, productGroupId:1})"></a> -->
+	<div class="grid_main">
+		<div class="grid_head">
+			<a ng-click="startVideo()">
+				<div class="head_ttl">{{currentAd.name}}</div>
+				<div class="head_img"><img ng-src="{{currentAd.thumbnail}}" /></div>
+				<div class="head_dsc">{{currentAd.description}}</div>
+			</a>
+		</div>
+		<div class="grid_cont">
+			<div class="grid_body">
+				<div class="grid_col" asv-grid-item ng-repeat="item in currentAd.productGroupTimeLine">
+					<div class="grid_item" >
+						<a ng-click="startVideo(item)">
+							<img ng-src="{{ item.thumbnail }}" />
 							<div class="grid_item_ovr">
 								<div class="grid_item_ttl">
-										{{item.Name}}
+										{{ item.title }}
 								</div>
 								<div class="grid_item_dsc">
-										{{item.Description}}
+										{{ item.subtitle }}
 								</div>
 							</div>
 						</a>
@@ -32,8 +39,5 @@
 				</div>
 			</div>
 		</div>
-	</div>
-	<div id="main_search" ng-if="searchPanel" ng-class="{'active': searchPanel}">
-		<div ng-include="'views/search.html'" include-replace> </div>
 	</div>
 </div>

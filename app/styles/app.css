@@ -8631,7 +8631,6 @@ body {
   z-index: 1000;
 }
 #main_page > div {
-  visibility: hidden;
   position: absolute;
   top: 0;
   left: 0;
@@ -8683,6 +8682,10 @@ body {
   right: -500px;
   background: rgba(0, 0, 0, 0.9);
   overflow: hidden;
+  transition: right .5s;
+}
+#main_search.open .search_main {
+  right: 0;
 }
 .search_title {
   height: 140px;
