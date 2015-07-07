@@ -252,7 +252,7 @@ angular.module('shopthatvid')
 					if(currentAd && keyword.length>0) {
 						var searchData = _.filter(currentAd.productGroupTimeLine, function(productGroup, index){
 							productGroup.index = index;
-							return productGroup.title.search(new RegExp(keyword, "i")) === 0 || productGroup.subtitle.search(new RegExp(keyword, "i")) === 0;
+							return productGroup.title.search(new RegExp(keyword, 'i')) === 0 || productGroup.subtitle.search(new RegExp(keyword, 'i')) === 0;
 						});
 						return searchData;
 					// } else if(keyword.length>0){

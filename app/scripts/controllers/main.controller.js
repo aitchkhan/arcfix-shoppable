@@ -82,7 +82,7 @@ angular.module('shopthatvid')
 			$rootScope.openSearchPanel = false;
 			$timeout(function(){
 				$rootScope.showSearchPanel = false;
-			}, 500, true)
+			}, 500, true);
 		}
 	};
 
@@ -93,10 +93,16 @@ angular.module('shopthatvid')
 			console.log(data);
 			$scope.searchData = data;
 			$scope.showSearchResults = true;
+			if(!$scope.searchScroll) {
+				$scope.searchScroll = $('#main_search .search_results').jScroll({ pad: 23 });
+			}
+			$timeout(function(){
+				$scope.searchScroll.jScroll('update');
+			},1, true);
 		})
 		.error(function(error, headers){
-			$scope.searchError = 'Error Occured.'
-		})
-	}
+			$scope.searchError = 'Error Occured.';
+		});
+	};
 
 });

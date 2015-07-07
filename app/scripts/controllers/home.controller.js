@@ -34,7 +34,7 @@ angular.module('shopthatvid')
 		} else {
 			$rootScope.$broadcast('play');
 		}
-	}
+	};
 	// adService.getAds($stateParams.videoId).then(function (ads) {
 	// 	if (ads.length) {
 	// 		$scope.currentAd = _.first(ads);

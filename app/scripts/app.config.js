@@ -133,6 +133,6 @@ angular.module('shopthatvid')
 
 
 	/* Add New States Above */
-	$urlRouterProvider.otherwise('/');
+	$urlRouterProvider.otherwise('/ad/1');
 
 });

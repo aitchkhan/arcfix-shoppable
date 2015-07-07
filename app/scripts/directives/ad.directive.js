@@ -22,6 +22,11 @@ angular.module('shopthatvid')
 			});
 			scope.player.on('adPlayerEnd', function(event, obj){
 				console.log('Ad player ended...', event, obj);
+				$state.go('productGroups', { videoId: $rootScope.currentVideoId })
+				.then(function(){
+					$rootScope.uiConfig.showMainContent = true;
+					$rootScope.uiConfig.showVideo = true;
+				})
 			});
 
 			$rootScope.$on('adDataLoaded', function(event, productGroup){
@@ -29,7 +34,7 @@ angular.module('shopthatvid')
 				scope.player.adPlayer('load', {
 					video: currentAd.media,
 					poster: productGroup?productGroup.thumbnail:currentAd.thumbnail,
-					groups: currentAd.productGroupTimeLine.map(function(elem){ return elem.time || null })
+					groups: currentAd.productGroupTimeLine.map(function(elem){ return elem.time || null; })
 				});
 			});
 
@@ -40,7 +45,7 @@ angular.module('shopthatvid')
 						video: currentAd.media,
 						poster: item.thumbnail,
 						seekTime: item.time,
-						groups: currentAd.productGroupTimeLine.map(function(elem){ return elem.time || null })
+						groups: currentAd.productGroupTimeLine.map(function(elem){ return elem.time || null; })
 					});
 				} 
 				$rootScope.uiConfig.showMainContent = false;
@@ -61,18 +66,18 @@ angular.module('shopthatvid')
 								scope.player.adPlayer('load', {
 									video: currentAd.media,
 									poster: currentAd.thumbnail,
-									groups: currentAd.productGroupTimeLine.map(function(elem){ return elem.time || null })
+									groups: currentAd.productGroupTimeLine.map(function(elem){ return elem.time || null; })
 								});
 								scope.player.adPlayer('play');
 							})
 							.error(function(err, headers){
 								$rootScope.displayError(err.message);
-							})
+							});
 						} else {
 							scope.player.adPlayer('load', {
 								video: currentAd.media,
 								poster: currentAd.thumbnail,
-								groups: currentAd.productGroupTimeLine.map(function(elem){ return elem.time || null })
+								groups: currentAd.productGroupTimeLine.map(function(elem){ return elem.time || null; })
 							});
 							scope.player.adPlayer('play');
 						}

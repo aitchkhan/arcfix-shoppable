@@ -4,8 +4,8 @@
 		<input id="search_text" type="text" />
 		<a ng-click="search()" class="button_go"></a>
 	</div>
-	<div class="search_results" sv-scroll item="sv-scroll-item" item-length="searchData.length" ng-if="showSearchResults">
-		<div class="res_item" sv-scroll-item ng-repeat="item in searchData">
+	<div class="search_results" asv-scroll search-scroll="searchScroll" item="sv-scroll-item" item-length="searchData.length" ng-show="showSearchResults">
+		<div class="res_item" asv-scroll-item ng-repeat="item in searchData">
 			<a ui-sref="productGroup({videoId: currentVideoId, productGroupId:item.index})" ng-click="toggleSearchPanel()">
 				<img ng-src="{{item.thumbnail}}" />
 				<div class="res_item_ttl">{{item.title}}</div>
