@@ -2,7 +2,7 @@
 
 angular.module('shopthatvid')
 
-.controller('ProductGroupCtrl', function ($scope, $rootScope, $stateParams, productGroup, ViewTypes, adService) {
+.controller('ProductGroupCtrl', function ($scope, $rootScope, $timeout, $state, $stateParams, productGroup, ViewTypes, adService) {
 	// update the navigation
 	if(0 === parseInt($rootScope.currentProductGroupId) ) {
 		$rootScope.navbar.disablePrev = true;
@@ -35,5 +35,15 @@ angular.module('shopthatvid')
 	$scope.currentProductGroup = productGroup.data;
 	$rootScope.navbar.headerTitle = $scope.currentProductGroup.title;
 
-	
+	$scope.initGroupView = function(){
+		$timeout(function() {
+			var groupPage = $('#main_group').gridView({ template: 'grid_group', itemWidth: 60, itemHeight: 110 });
+			groupPage.gridView('update', true);
+			var headerDscScroll = $('#main_group .grid_head .head_dsc').jScroll();
+		}, 1, true);
+	};
+
+	$scope.openProduct = function(product, productIndex){
+		$state.go('product', { videoId: $rootScope.currentVideoId, productGroupId: $rootScope.currentProductGroupId, productId: productIndex });
+	};
 });

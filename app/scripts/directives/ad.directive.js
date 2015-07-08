@@ -26,7 +26,7 @@ angular.module('shopthatvid')
 				.then(function(){
 					$rootScope.uiConfig.showMainContent = true;
 					$rootScope.uiConfig.showVideo = true;
-				})
+				});
 			});
 
 			$rootScope.$on('adDataLoaded', function(event, productGroup){

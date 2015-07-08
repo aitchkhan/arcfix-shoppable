@@ -1,4 +1,16 @@
-<div id="main_groups" class="view_hasHead" sv-grid-view item-length="ads.length" item="sv-grid-item">
-	<h1> Product Groupsss page </h1>
-	<a ui-sref="productGroup({videoId:1, productGroupId:1})"> Product Group </a>
+<div id="main_groups" class="view_hasHead grid_groups" ng-init="initGroupsView()" style="height:100%">
+	<div class="grid_main">
+		<div class="grid_cont">
+			<div class="grid_body">
+				<div class="grid_item" ng-repeat="productGroup in productGroups" ng-click="gotoProductGroup(productGroup, $index)">
+					<div class="grid_item_ttl">{{ productGroup.title }}</div>
+					<img ng-src="{{ productGroup.thumbnail }}" ng-show="displayImage">
+					<div class="grid_item_lnk"><a class="button_buy" href="{{ productGroup.makeThisYourLookURL }}" target="_blank">Make this your look!</a>
+					</div>
+					<div class="grid_item_stl">{{ productGroup.subtitle }}</div>
+					<div class="grid_item_dsc"> {{ productGroup.description }}</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>

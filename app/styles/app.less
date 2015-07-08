@@ -460,6 +460,8 @@ body {
 }
 .head_dsc {
     font-size: 18px;
+    height: 100px;
+    position: relative;
 }
 .grid_col {
     height: 100%;
@@ -502,9 +504,12 @@ body {
     .grid_item_dsc {
         font-size: 18px;
         padding: 5px 10px 10px 0;
-        max-height: 70px;
+        max-height: 80px;
         text-overflow: ellipsis;
         overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
     }
 }
 .grid_start {

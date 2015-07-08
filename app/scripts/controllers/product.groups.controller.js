@@ -2,7 +2,7 @@
 
 angular.module('shopthatvid')
 
-.controller('ProductGroupsCtrl', function ($scope, $rootScope, $stateParams, productGroups, ViewTypes, adService) {
+.controller('ProductGroupsCtrl', function ($scope, $rootScope, $timeout, $state, $stateParams, productGroups, ViewTypes, adService) {
 	// update the navigation
 	$rootScope.changeNavbar(ViewTypes.PRODUCT_GROUPS);
 	
@@ -21,5 +21,19 @@ angular.module('shopthatvid')
 	} else {
 		$rootScope.navbar.headerTitle = currentAd.name;
 	}
+
+	$scope.productGroups = productGroups.data;
+
+	$scope.initGroupsView = function() {
+		$timeout(function(){
+			var groupsView = $('#main_groups').gridView({ template: 'grid_groups', columns: false, itemWidth: 23 });
+			groupsView.gridView('update');
+			$scope.displayImage = true;
+		}, 1, true);
+	};
+
+	$scope.gotoProductGroup = function(productGroup, index) {
+		$state.go('productGroup', { videoId: $rootScope.currentVideoId, productGroupId: index });
+	};
 	
 });

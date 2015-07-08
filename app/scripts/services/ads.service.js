@@ -6,6 +6,30 @@ angular.module('shopthatvid')
 	this.currentProductGroup = undefined;
 	this.currentProduct = undefined;
 
+	var convertPropertyName = function(obj){
+		if(obj.length === undefined) {
+			_.each(obj, function(value, key){
+				var oldKey = key;
+				if(key === 'ID') {
+					key = 'id';
+				} else {
+					key = key.charAt(0).toLowerCase() + key.slice(1);
+				}
+				obj[key] = value;
+				delete obj[oldKey];
+				if(typeof obj[key] === 'object') {
+					convertPropertyName(obj[key]);
+				}
+			});
+		} else if(obj.length > 0){
+			_.each(obj, function(item){
+				if(typeof item === 'object') {
+					convertPropertyName(item);
+				}
+			});
+		}
+	};
+
 	var mockAdResponse = function(data, videoId){
 		var adData = _.find(data, function(ad){
 			return ad.ID === parseInt(videoId);
@@ -14,30 +38,31 @@ angular.module('shopthatvid')
 			return undefined;
 		}
 
-		_.each(adData, function(value, key){
-			var oldKey = key;
-			if(key === 'ID') {
-				key = 'id';
-			} else {
-				key = key.charAt(0).toLowerCase() + key.slice(1);
-			}
-			adData[key] = value;
-			delete adData[oldKey];
-		});
+		convertPropertyName(adData);
+		// _.each(adData, function(value, key){
+		// 	var oldKey = key;
+		// 	if(key === 'ID') {
+		// 		key = 'id';
+		// 	} else {
+		// 		key = key.charAt(0).toLowerCase() + key.slice(1);
+		// 	}
+		// 	adData[key] = value;
+		// 	delete adData[oldKey];
+		// });
 		
-		_.each(adData.productGroupTimeLine, function(pg, index) {
-			_.each(pg, function(value, key){ 
-				// console.log('value:', key);
-				var oldKey = key;
-				if(key === 'ID') {
-					pg.id = pg.ID;
-				} else if(key === 'Time' || key === 'Title' || key === 'Subtitle' || key === 'Thumbnail') {
-					key = key.charAt(0).toLowerCase() + key.slice(1);
-					pg[key] = value;
-				} 
-				delete pg[oldKey];
-			});
-		});
+		// _.each(adData.productGroupTimeLine, function(pg, index) {
+		// 	_.each(pg, function(value, key){ 
+		// 		// console.log('value:', key);
+		// 		var oldKey = key;
+		// 		if(key === 'ID') {
+		// 			pg.id = pg.ID;
+		// 		} else if(key === 'Time' || key === 'Title' || key === 'Subtitle' || key === 'Thumbnail') {
+		// 			key = key.charAt(0).toLowerCase() + key.slice(1);
+		// 			pg[key] = value;
+		// 		} 
+		// 		delete pg[oldKey];
+		// 	});
+		// });
 		console.log('Mocked adData: ', adData);
 		return adData;
 	};
@@ -50,36 +75,40 @@ angular.module('shopthatvid')
 			return undefined;
 		}
 
+		convertPropertyName(adData);
 		// var productGroupData = _.find(adData.ProductGroupTimeLine, function(productGroup){
 		// 	return productGroup.ID === parseInt(productGroupId);
 		// });
 
-		var productGroupData = adData.ProductGroupTimeLine[parseInt(productGroupId)];
+		var productGroupData = adData.productGroupTimeLine[parseInt(productGroupId)];
 
-		_.each(productGroupData, function(value, key){
-			var oldKey = key;
-			if(key === 'ID') {
-				key = 'id';
-			} else {
-				key = key.charAt(0).toLowerCase() + key.slice(1);
-			}
-			productGroupData[key] = value;
-			delete productGroupData[oldKey];
-		});
+		// _.each(productGroupData, function(value, key){
+		// 	var oldKey = key;
+		// 	if(key === 'ID') {
+		// 		key = 'id';
+		// 	} else {
+		// 		key = key.charAt(0).toLowerCase() + key.slice(1);
+		// 	}
+		// 	productGroupData[key] = value;
+		// 	delete productGroupData[oldKey];
+		// });
 
-		_.each(productGroupData.products, function(product, index) {
-			_.each(product, function(value, key){ 
-				// console.log('value:', key);
-				var oldKey = key;
-				if(key === 'ID') {
-					product.id = product.ID;
-				} else if(key === 'Name' || key === 'Description' || key === 'ProductImages') {
-					key = key.charAt(0).toLowerCase() + key.slice(1);
-					product[key] = value;
-				} 
-				delete product[oldKey];
-			});
-		});
+		// _.each(productGroupData.products, function(product, index) {
+		// 	_.each(product, function(value, key){ 
+		// 		// console.log('value:', key);
+		// 		var oldKey = key;
+		// 		if(key === 'ID') {
+		// 			product.id = product.ID;
+		// 		} else if(key === 'Name' || key === 'Description' || key === 'ProductImages') {
+		// 			key = key.charAt(0).toLowerCase() + key.slice(1);
+		// 			product[key] = value;
+		// 		} 
+		// 		delete product[oldKey];
+		// 		if(typeof product[key] == 'object') {
+		// 			convertPropertyName(product[key]);
+		// 		}
+		// 	});
+		// });
 			
 		console.log('Mocked productGroupData: ', productGroupData);
 		return productGroupData;
@@ -93,27 +122,31 @@ angular.module('shopthatvid')
 			return undefined;
 		}
 
-		var productGroupData = _.find(adData.ProductGroupTimeLine, function(productGroup){
-			return productGroup.ID === parseInt(productGroupId);
-		});
+		convertPropertyName(adData);
 
-		var productData = _.find(productGroupData.Products, function(product){
-			return product.ID === parseInt(productId);
-		});
+		var productGroupData = adData.productGroupTimeLine[productGroupId];
 
-		_.each(productData, function(value, key){
-			var oldKey = key;
-			if(key === 'ID') {
-				key = 'id';
-			} else {
-				key = key.charAt(0).toLowerCase() + key.slice(1);
-			}
-			productData[key] = value;
-			delete productData[oldKey];
-		});
+		var productData = productGroupData.products[productId];
+		// var productData = _.find(productGroupData.Products, function(product){
+		// 	return product.ID === parseInt(productId);
+		// });
+
+		// _.each(productData, function(value, key){
+		// 	var oldKey = key;
+		// 	if(key === 'ID') {
+		// 		key = 'id';
+		// 	} else {
+		// 		key = key.charAt(0).toLowerCase() + key.slice(1);
+		// 	}
+		// 	productData[key] = value;
+		// 	delete productData[oldKey];
+		// 	if(typeof productData[key] == 'object') {
+		// 		convertPropertyName(productData[key]);
+		// 	}
+		// });
 
 		console.log('Mocked productData: ', productData);
-		return productGroupData;
+		return productData;
 	};
 
 	var mockProductGroupsResponse = function(data, videoId) {
@@ -123,31 +156,32 @@ angular.module('shopthatvid')
 		if(!adData) {
 			return undefined;
 		}
+		convertPropertyName(adData);
 
-		_.each(adData, function(value, key){
-			var oldKey = key;
-			if(key === 'ID') {
-				key = 'id';
-			} else {
-				key = key.charAt(0).toLowerCase() + key.slice(1);
-			}
-			adData[key] = value;
-			delete adData[oldKey];
-		});
+		// _.each(adData, function(value, key){
+		// 	var oldKey = key;
+		// 	if(key === 'ID') {
+		// 		key = 'id';
+		// 	} else {
+		// 		key = key.charAt(0).toLowerCase() + key.slice(1);
+		// 	}
+		// 	adData[key] = value;
+		// 	delete adData[oldKey];
+		// });
 		
-		_.each(adData.productGroupTimeLine, function(pg, index) {
-			_.each(pg, function(value, key){ 
-				// console.log('value:', key);
-				var oldKey = key;
-				if(key === 'ID') {
-					pg.id = pg.ID;
-				} else if(key === 'Time' || key === 'Title' || key === 'Subtitle' || key === 'Thumbnail') {
-					key = key.charAt(0).toLowerCase() + key.slice(1);
-					pg[key] = value;
-				} 
-				delete pg[oldKey];
-			});
-		});
+		// _.each(adData.productGroupTimeLine, function(pg, index) {
+		// 	_.each(pg, function(value, key){ 
+		// 		// console.log('value:', key);
+		// 		var oldKey = key;
+		// 		if(key === 'ID') {
+		// 			pg.id = pg.ID;
+		// 		} else if(key === 'Time' || key === 'Title' || key === 'Subtitle' || key === 'Thumbnail') {
+		// 			key = key.charAt(0).toLowerCase() + key.slice(1);
+		// 			pg[key] = value;
+		// 		} 
+		// 		delete pg[oldKey];
+		// 	});
+		// });
 
 		console.log('Mocked productData: ', adData.productGroupTimeLine);
 		return adData.productGroupTimeLine;

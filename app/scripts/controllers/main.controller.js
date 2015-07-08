@@ -70,10 +70,6 @@ angular.module('shopthatvid')
 		$state.go('productGroups', { videoId: $rootScope.currentVideoId });
 	};
 
-	$scope.gotoProductGroup = function(){
-		console.log('gotoProductGroup placeholder...');
-	};
-
 	$scope.toggleSearchPanel = function(){
 		if(!$rootScope.showSearchPanel) {
 			$rootScope.showSearchPanel = true;
@@ -103,6 +99,10 @@ angular.module('shopthatvid')
 		.error(function(error, headers){
 			$scope.searchError = 'Error Occured.';
 		});
+	};
+
+	$scope.gobackToProductGroup = function(){
+		$state.go('productGroup', { videoId: $rootScope.currentVideoId, productGroupId: $rootScope.currentProductGroupId });
 	};
 
 });

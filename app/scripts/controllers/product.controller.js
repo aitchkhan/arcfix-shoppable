@@ -2,84 +2,63 @@
 
 angular.module('shopthatvid')
 
-.controller('ProductCtrl', function ($scope, $rootScope, $stateParams, product, ViewTypes, adService) {
+.controller('ProductCtrl', function ($scope, $rootScope, $timeout, $stateParams, product, ViewTypes, adService) {
 	// update the navigation
-	$rootScope.changeNavbar(ViewTypes.PRODUCT_GROUP);
-	
-	$scope.page = 'video';
-	$scope.currentProduct = product;
+	$rootScope.changeNavbar(ViewTypes.PRODUCT_ITEM);
 
-	$scope.currentProductGroupIndex = 0;
-	if(angular.isNumber(parseInt($stateParams.id))) {
-		$scope.currentProductGroupIndex = parseInt($stateParams.id);
-	}
-	console.log('$scope.currentProductGroupIndex: ', $stateParams.id);
-	$scope.currentProductGroup = $rootScope.productGroups.ProductGroupTimeLine[$stateParams.id];
+	$scope.currentProduct = product.data;
+	$rootScope.navbar.headerTitle = $scope.currentProduct.name;
 
-	$scope.error = false;
-	$scope.time = 0;
-	$scope.status = null;
-	$scope.segmentsFilter = [];
-	$scope.$watch('status', function(newValue){
-		if(newValue === 'paused'){
-			$scope.segmentsFilter = [];
-			for(var i=0; i < $scope.currentProductGroupData.segments.length; i++){
-				if($scope.time >= $scope.currentProductGroupData.segments[i].interval){
-					$scope.segmentsFilter.push($scope.currentProductGroupData.segments[i]);
-				}
-			}
-		}
-	});
+	$scope.currentMainImage = $scope.currentProduct.productImages[0];
 
-	$scope.showPrevious = function() {
-		if($scope.currentProductGroupIndex-1 >=0) {
-			$scope.currentProductGroupIndex--;
-			$scope.currentProductGroup = $rootScope.productGroups.ProductGroupTimeLine[$scope.currentProductGroupIndex];	
-		}
+	$scope.getNumber = function(num) {
+		return new Array(num);   
 	};
 
-	$scope.showNext = function() {
-		if($rootScope.productGroups.ProductGroupTimeLine && $scope.currentProductGroupIndex+1 < $rootScope.productGroups.ProductGroupTimeLine.length) {
-			$scope.currentProductGroupIndex++;
-			$scope.currentProductGroup = $rootScope.productGroups.ProductGroupTimeLine[$scope.currentProductGroupIndex];
-		}
+	$scope.updateMainImage = function(image){
+		$scope.currentMainImage = image;
 	};
 
-	$scope.searchPanel = false;
-	
-	$scope.toggleSearchPanel = function(){
-		$scope.searchPanel = !$scope.searchPanel;
-		// if($scope.searchPanel) {
-		// 	$('.search_main').animate({
-		// 		right: '0px'
-		// 	}, 200, function() {
-		// 		// Animation complete.
-		// 	});
-		// } else {
-		// 	$('.search_main').animate({
-		// 		right: '-500px'
-		// 	}, 400, function() {
-		// 		// Animation complete.
-		// 	});
-		// }
+	var mainView, revLoaded, imgLoaded;
+	$scope.initProductItemView = function(){
+		$timeout(function(){
+			mainView = $('#main_item').find('.item_main').jScroll({ mode: 'h', pad: 23, autoresize: false });
+			$('#main_item').find('.item_imgs_thmb').jScroll();
+			$('#main_item').find('.item_revw_rgrp').jScroll();
+			mainView.jScroll('update');
+		}, 100, true);
 	};
 
-	$scope.search = function () {
-		adService.search().then(function (ads) {
-			if (ads.length) {
-				$scope.searchData = ads;
-			}
-		});
-	};
 
-	$scope.playControlInit = function() {
-		// console.log('el init: ');
-		$('#play_video').on('click', function(event){
-			$rootScope.$broadcast('playVideo');
-		});
-	};
+	$scope.imagesLoaded = function(){
+        imgLoaded = true;
+        if(revLoaded) {
+        	var contW = $('#main_item').find('.item_info').outerWidth(true);
+        	contW += $('#main_item').find('.item_revw').outerWidth(true);
+        	contW += $('#main_item').find('.item_imgs').outerWidth(true);
+        	$('#main_item').find('.item_body').css({ width: contW + 'px' });
+        	if(mainView) {
+        		mainView.jScroll('update');
+        	} else {
+        		mainView = $('#main_item').find('.item_main').jScroll({ mode: 'h', pad: 23, autoresize: false });
+        		mainView.jScroll('update');
+        	}
+        }
+    };
 
-	//      $scope.group=_.first(productGroup.ProductGroupTimeLine);
-	//      $scope.product=_.first($scope.group.Products);
-	//      $scope.showReviews = false;
+    $scope.reviewsLoaded = function(){
+    	var revLoaded = true;
+    	if(imgLoaded) {
+    		var contW = $('#main_item').find('.item_info').outerWidth(true);
+    		contW += $('#main_item').find('.item_revw').outerWidth(true);
+    		contW += $('#main_item').find('.item_imgs').outerWidth(true);
+    		$('#main_item').find('.item_body').css({ width: contW + 'px' });
+    		if(mainView) {
+    			mainView.jScroll('update');
+    		} else {
+    			mainView = $('#main_item').find('.item_main').jScroll({ mode: 'h', pad: 23, autoresize: false });
+    			mainView.jScroll('update');
+    		}
+    	}
+    };
 });
