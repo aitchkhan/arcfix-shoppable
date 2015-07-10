@@ -26,7 +26,7 @@ angular.module('shopthatvid')
 
 	$scope.initGroupsView = function() {
 		$timeout(function(){
-			var groupsView = $('#main_groups').gridView({ template: 'grid_groups', columns: false, itemWidth: 23 });
+			var groupsView = $('#main_groups').gridView({ template: 'grid_groups', columns: false });
 			groupsView.gridView('update');
 			$scope.displayImage = true;
 		}, 1, true);

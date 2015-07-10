@@ -3,6 +3,11 @@
 angular.module('shopthatvid')
 
 .run(function($rootScope, NavbarConfig, ViewTypes){
+
+	// if(!window.console || !window.console.log) {
+	// 	window.console = {};
+	// 	window.console.log = function() {};
+	// }
 	$rootScope.navbar = NavbarConfig;
 
 	$rootScope.uiConfig = {

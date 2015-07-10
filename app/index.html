@@ -86,7 +86,7 @@
 		</div>
 		
 		<div class="" ng-show="uiConfig.showMainContent">
-			<div ui-view style="height:100%"></div>
+			<div ui-view style="height:100%" ng-animate="'main-view'"></div>
 		</div>
 		<div id="main_search" ng-class="{open:openSearchPanel}" ng-show="showSearchPanel">
 			<div ng-include="'views/search.html'" include-replace></div>

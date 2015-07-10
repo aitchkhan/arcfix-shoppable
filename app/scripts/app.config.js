@@ -3,9 +3,12 @@
 angular.module('shopthatvid')
 
 .constant('GLOBALS', { 
-	adUrl: 'data/ads_fromlive.json', 
-	searchUrl: 'data/search.json',
-	projectGroupUrl: 'data/product_group.json'
+	adUrl				: 'data/ads_fromlive.json', 
+	searchUrl			: 'data/search.json',
+	projectGroupUrl		: 'data/product_group.json',
+	showProductReviews 	: false,
+	showProductColors 	: true,
+	showProductSizes 	: false
 })
 
 .value('NavbarConfig', {
@@ -23,7 +26,8 @@ angular.module('shopthatvid')
 	PRODUCT_ITEM	: 'PRODUCT_ITEM'
 })
 
-.config(function ($stateProvider, $urlRouterProvider) {
+.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
+	// $locationProvider.html5Mode(true);
 
 	$stateProvider
 	

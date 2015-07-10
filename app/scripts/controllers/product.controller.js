@@ -2,10 +2,13 @@
 
 angular.module('shopthatvid')
 
-.controller('ProductCtrl', function ($scope, $rootScope, $timeout, $stateParams, product, ViewTypes, adService) {
+.controller('ProductCtrl', function ($scope, $rootScope, $timeout, $stateParams, product, ViewTypes, adService, GLOBALS) {
 	// update the navigation
 	$rootScope.changeNavbar(ViewTypes.PRODUCT_ITEM);
 
+	$scope.showReviews = GLOBALS.showProductReviews;
+	$scope.showColors = GLOBALS.showProductColors;
+	$scope.showProductSizes = GLOBALS.showProductSizes;
 	$scope.currentProduct = product.data;
 	$rootScope.navbar.headerTitle = $scope.currentProduct.name;
 

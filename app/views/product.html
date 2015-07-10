@@ -2,24 +2,25 @@
 	<div class="item_main">
 		<div class="item_body">
 			<div class="item_info">
-				<div class="item_sttl">{{ currentProduct.name }}</div>
-				<div class="item_price">{{ currentProduct.price.PriceValue }}</div>
-				<div class="item_link"><a class="button_buy" href="{{ currentProduct.makeThisYourLookURL }}" target="_blank">Make this your look!</a></div>
+				<div class="item_sttl">{{ currentProduct.subtitle }}</div>
+				<div class="item_price">{{ currentProduct.price.priceValue }}</div>
+				<div class="item_link"><a ng-if="currentProduct.makeThisYourLookURL" class="button_buy" href="{{ currentProduct.makeThisYourLookURL }}" target="_blank">Make this your look!</a></div>
 				<div class="item_desc">{{ currentProduct.description }}</div>
-				<div class="item_colr cf" ng-if="currentProduct.productColors.length">
+				
+				<div class="item_colr cf" ng-if="showColors && currentProduct.productColors.length">
 					<div class="item_colr_titl">Colors</div>
 					<div class="item_colr_cont">
 						<div class="item_colr_item" ng-repeat="color in currentProduct.productColors" ng-style="{'background-color': color.colorValue}"></div>
 					</div>
 				</div>
-				<div class="item_size cf" ng-if="currentProduct.sizes.length">
+				<div class="item_size cf" ng-if="showProductSizes && currentProduct.sizes.length">
 					<div class="item_size_titl">Sizes</div>
 					<div class="item_size_cont">
 						<div class="item_size_item" ng-repeat="size in currentProduct.sizes">{{ size }}</div>
 					</div>
 				</div>
 			</div>
-			<div class="item_revw" ng-if="currentProduct.reviews.length" ng-init="reviewsLoaded()">
+			<div class="item_revw" ng-if="showReviews && currentProduct.reviews.length" ng-init="reviewsLoaded()">
 				<div class="item_revw_titl">Reviews</div>
 				<div class="item_revw_rgrp">
 					<div class="item_revw_item" ng-repeat="review in currentProduct.reviews">
