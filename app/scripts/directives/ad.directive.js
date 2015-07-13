@@ -87,10 +87,11 @@ angular.module('shopthatvid')
 
 			$rootScope.$on('seekAndPlay', function(event, productGroup){
 				$rootScope.uiConfig.showMainContent = false;
-				$rootScope.uiConfig.showVideo = true;
 				scope.player.adPlayer('seek', productGroup.time,function(){
 					console.log('seek done...');
 					scope.showVideo = true;
+					$rootScope.uiConfig.showVideo = true;
+					$rootScope.$apply();
 					scope.player.adPlayer('play');
 				});
 			});
