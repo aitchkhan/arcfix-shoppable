@@ -8,7 +8,7 @@ angular.module('shopthatvid')
 	projectGroupUrl		: 'data/product_group.json',
 	showProductReviews 	: false,
 	showProductColors 	: true,
-	showProductSizes 	: false
+	showProductSizes 	: true
 })
 
 .value('NavbarConfig', {
