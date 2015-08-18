@@ -25,6 +25,7 @@ angular.module('shopthatvid')
 		$timeout(function() {
 			var startPage = $('#main_start').gridView({ template: 'grid_start', itemWidth: 60 });
 			startPage.gridView('update', true);
+			$('#main_start').find('.head_dsc').jScroll({ autoresize: true });
 		}, 10);
 	};
 

@@ -25,7 +25,7 @@ angular.module('shopthatvid')
 	var mainView, revLoaded, imgLoaded;
 	$scope.initProductItemView = function(){
 		$timeout(function(){
-			mainView = $('#main_item').find('.item_main').jScroll({ mode: 'h', pad: 23, autoresize: false });
+			mainView = $('#main_item').find('.item_main').jScroll({ mode: 'h', pad: 23, autoresize: true });
 			$('#main_item').find('.item_imgs_thmb').jScroll();
 			$('#main_item').find('.item_revw_rgrp').jScroll();
 			mainView.jScroll('update');
@@ -43,7 +43,7 @@ angular.module('shopthatvid')
         	if(mainView) {
         		mainView.jScroll('update');
         	} else {
-        		mainView = $('#main_item').find('.item_main').jScroll({ mode: 'h', pad: 23, autoresize: false });
+        		mainView = $('#main_item').find('.item_main').jScroll({ mode: 'h', pad: 23, autoresize: true });
         		mainView.jScroll('update');
         	}
         }

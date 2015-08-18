@@ -133,11 +133,7 @@
 		attachEvents: function(player) {
 			var self = this, v = self.vals;
 			if(player) {
-				self.vidp.vid.on('timeupdate', function(){
-					if(parseInt(self.vidp.vid.prop('currentTime')) > (v.currentIntTime||0)) {
-						$.proxy(self.utils.updateTime, self)();
-					}
-				});
+				self.vidp.vid.on('timeupdate', $.proxy(self.utils.updateTime, self));
 				self.vidp.vid.on('ended', $.proxy(self.play, self, true));
 				self.vidp.vid.on('click', $.proxy(self.play, self, false));
 				if(!v.browser.ie && !v.browser.chrome) {

@@ -41,7 +41,8 @@ angular.module('shopthatvid')
 			var groupPage = $('#main_group').gridView({ template: 'grid_group', itemWidth: 60, itemHeight: 110 });
 			groupPage.gridView('update', true);
 			$('#main_group').css('opacity', 1);
-			// var headerDscScroll = $('#main_group .grid_head .head_dsc').jScroll();
+			// $('#main_start').find('.head_dsc').jScroll({ autoresize: true })
+			var headerDscScroll = $('#main_group .grid_head .head_dsc').jScroll({ autoresize: true });
 		}, 1, true);
 	};
 
