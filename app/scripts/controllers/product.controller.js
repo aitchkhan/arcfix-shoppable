@@ -9,10 +9,7 @@ angular.module('shopthatvid')
 	$scope.showReviews = GLOBALS.showProductReviews;
 	$scope.showColors = GLOBALS.showProductColors;
 	$scope.showProductSizes = GLOBALS.showProductSizes;
-	$scope.currentProduct = product.data;
-	$rootScope.navbar.headerTitle = $scope.currentProduct.name;
-
-	$scope.currentMainImage = $scope.currentProduct.productImages[0];
+	
 
 	$scope.getNumber = function(num) {
 		return new Array(num);   
@@ -64,4 +61,27 @@ angular.module('shopthatvid')
     		}
     	}
     };
+
+    var init = function(currentAd) {
+        $scope.currentProduct = currentAd.productGroups[$rootScope.currentProductGroupId] &&
+                         currentAd.productGroups[$rootScope.currentProductGroupId].products[$rootScope.currentProductId];
+        if($scope.currentProduct) {
+            $rootScope.navbar.headerTitle = $scope.currentProduct.name;
+            $scope.currentMainImage = $scope.currentProduct.productImages[0];
+            $scope.initProductItemView();
+        } else {
+            $rootScope.displayError('Selected product detail not found.');
+        }
+    };
+
+    $rootScope.$on('adDataLoaded', function() {
+        var currentAd = adService.getCurrentAd();
+        init(currentAd);
+    });
+
+    var currentAd = adService.getCurrentAd();
+    if(currentAd) {
+        init(currentAd);
+    }
+    
 });

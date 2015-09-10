@@ -45,18 +45,18 @@ angular.module('shopthatvid')
 
 	$scope.showNext = function(){
 		var currentAd = adService.getCurrentAd();
-		if(currentAd && currentAd.productGroupTimeLine.length > (parseInt($rootScope.currentProductGroupId) +1) ) {
+		if(currentAd && currentAd.productGroups.length > (parseInt($rootScope.currentProductGroupId) +1) ) {
 			$rootScope.currentProductGroupId = parseInt($rootScope.currentProductGroupId) + 1;
 			if($rootScope.navbar.disablePrev) {
 				$rootScope.navbar.disablePrev = false;	
 			}
 		} 
 
-		if(currentAd && currentAd.productGroupTimeLine.length - 1 === parseInt($rootScope.currentProductGroupId) ) {
+		if(currentAd && currentAd.productGroups.length - 1 === parseInt($rootScope.currentProductGroupId) ) {
 			$rootScope.navbar.disableNext = true;
 		}
 
-		if(currentAd && currentAd.productGroupTimeLine.length > $rootScope.currentProductGroupId) {
+		if(currentAd && currentAd.productGroups.length > $rootScope.currentProductGroupId) {
 			$state.go('productGroup', { videoId: $rootScope.currentVideoId, productGroupId: $rootScope.currentProductGroupId });
 		}
 	};

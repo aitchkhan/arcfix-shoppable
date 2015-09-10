@@ -44,6 +44,7 @@
 			if (obj) {
 				self.options.video = obj.video;
 				self.options.poster = obj.poster;
+				console.log('obj.groups', obj.groups);
 				self.options.groups = obj.groups;
 			}
 			if (self.options.video != null) {
@@ -58,7 +59,7 @@
 				self.vidp.msg.html('Click / Tap on the screen to begin video ad playback.').fadeIn(100);
 				$.proxy(self.utils.setPoster, self, self.options.poster)();
 				self.vidp.vid[0].load();
-				if(obj.seekTime) {
+				if(obj.seekTime >= 0) {
 					self.vidp.vid[0].addEventListener('loadedmetadata', function() {
 					  self.vidp.vid[0].currentTime = obj.seekTime;
 					}, false);

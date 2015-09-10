@@ -32,6 +32,17 @@ angular.module('shopthatvid')
     return text.replace(exp, '<a href="$1" target="_blank">$1</a>');
   };
 })
+.filter('prependProtocol', function () {
+  return function (link) {
+    if(!link) {
+      return '#';
+    } else if(link.indexOf('http')<0){
+      return 'http://'+ link;
+    } else {
+      return link;
+    }
+  };
+})
 .filter('htmlToPlaintext', function() {
   return function(text) {
     return String(text).replace(/<[^>]+>/gm, '');
@@ -91,6 +102,26 @@ angular.module('shopthatvid')
       return str;
     };
 })
+
+.filter('productGroupImage', function($rootScope) {
+  return function(productGroup) {
+    // console.log('productGroup.productGroupImageUrl + $rootScope.shoppableVideoSAS: ', productGroup.productGroupImageUrl + $rootScope.shoppableVideoSAS);
+    // if(!productGroup) {
+      return 'assets/content/products/group_01.png';
+    // }
+    // return productGroup.productGroupImageUrl + $rootScope.shoppableVideoSAS;
+  };
+})
+
+.filter('productImage', function($rootScope) {
+  return function(product) {
+    // if(!product) {
+      return 'assets/content/products/group_02_shoes.png';
+    // }
+    // return product.productImageUrl + $rootScope.shoppableVideoSAS;
+  };
+})
+
 .filter('toMinute', function () {
     return function (intTime) {
       var time = parseInt(intTime);

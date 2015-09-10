@@ -32,20 +32,24 @@ angular.module('shopthatvid')
 			$rootScope.$on('adDataLoaded', function(event, productGroup){
 				var currentAd = adService.getCurrentAd();
 				scope.player.adPlayer('load', {
-					video: currentAd.media,
-					poster: productGroup?productGroup.thumbnail:currentAd.thumbnail,
-					groups: currentAd.productGroupTimeLine.map(function(elem){ return elem.time || null; })
+					video: currentAd.videoDetail.videos[0].url,
+					// poster: productGroup?productGroup.thumbnail:currentAd.videoThumbnail,
+					poster: currentAd.videoThumbnail,
+					groups: currentAd.timeline.timelineItems.map(function(elem){ return angular.isNumber(elem.start)?elem.start:null; })
 				});
 			});
 
-			$rootScope.$on('play', function(event, item){
+			$rootScope.$on('play', function(event, data){
+				var item = data && data.item;
+				var index = data && data.index;
 				if(item) {
 					var currentAd = adService.getCurrentAd();
+					var seekTime = currentAd.timeline.timelineItems[index].start;
 					scope.player.adPlayer('load', {
-						video: currentAd.media,
-						poster: item.thumbnail,
-						seekTime: item.time,
-						groups: currentAd.productGroupTimeLine.map(function(elem){ return elem.time || null; })
+						video: currentAd.videoDetail.videos[0].url,
+						poster: 'assets/content/products/group_01.png',
+						seekTime: seekTime,
+						groups: currentAd.timeline.timelineItems.map(function(elem){ return angular.isNumber(elem.start)?elem.start:null; })
 					});
 				} 
 				$rootScope.uiConfig.showMainContent = false;
@@ -64,9 +68,9 @@ angular.module('shopthatvid')
 							.success(function(data, headers){
 								currentAd = data;
 								scope.player.adPlayer('load', {
-									video: currentAd.media,
-									poster: currentAd.thumbnail,
-									groups: currentAd.productGroupTimeLine.map(function(elem){ return elem.time || null; })
+									video: currentAd.videoDetail.videos[0].url,
+									poster: currentAd.videoThumbnail,
+									groups: currentAd.timeline.timelineItems.map(function(elem){ return angular.isNumber(elem.start)?elem.start:null; })
 								});
 								scope.player.adPlayer('play');
 							})
@@ -75,9 +79,9 @@ angular.module('shopthatvid')
 							});
 						} else {
 							scope.player.adPlayer('load', {
-								video: currentAd.media,
-								poster: currentAd.thumbnail,
-								groups: currentAd.productGroupTimeLine.map(function(elem){ return elem.time || null; })
+								video: currentAd.videoDetail.videos[0].url,
+								poster: currentAd.videoThumbnail,
+								groups: currentAd.timeline.timelineItems.map(function(elem){ return angular.isNumber(elem.start)?elem.start:null; })
 							});
 							scope.player.adPlayer('play');
 						}
@@ -87,13 +91,19 @@ angular.module('shopthatvid')
 
 			$rootScope.$on('seekAndPlay', function(event, productGroup){
 				$rootScope.uiConfig.showMainContent = false;
-				scope.player.adPlayer('seek', productGroup.time,function(){
-					console.log('seek done...');
-					scope.showVideo = true;
-					$rootScope.uiConfig.showVideo = true;
-					$rootScope.$apply();
-					scope.player.adPlayer('play');
-				});
+				var seekTime = $rootScope.currentAd.timeline.timelineItems[$rootScope.currentProductGroupId] && 
+							$rootScope.currentAd.timeline.timelineItems[$rootScope.currentProductGroupId].start;
+				if(seekTime === undefined || seekTime === null) {
+					$rootScope.displayError('Error while seeking to the selected ProductGroup.');
+				} else {
+					scope.player.adPlayer('seek', seekTime,function(){
+						console.log('seek done...');
+						scope.showVideo = true;
+						$rootScope.uiConfig.showVideo = true;
+						$rootScope.$apply();
+						scope.player.adPlayer('play');
+					});
+				}
 			});
 
 		}

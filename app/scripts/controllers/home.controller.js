@@ -12,14 +12,12 @@ angular.module('shopthatvid')
 		// $rootScope.changeNavbar(ViewTypes.ERROR);
 	}
 
-	$scope.videoId = $stateParams.videoId;
+	
+	// $scope.videoId = $stateParams.videoId;
 	$rootScope.navbar.headerTitle = 'Shop that video';
 	$rootScope.changeNavbar(ViewTypes.HOME);
 	$scope.currentProductGroup = {};
 	$scope.currentProductGroup.Title = 'Shop that video';
-	
-	$scope.currentAd = currentAdResponse.data;
-	$rootScope.$broadcast('adDataLoaded');
 	
 	$scope.initStartView = function(){
 		$timeout(function() {
@@ -29,12 +27,21 @@ angular.module('shopthatvid')
 		}, 10);
 	};
 
-	$scope.startVideo = function(item){
+	$scope.startVideo = function(item, index){
 		if(item) {
-			$rootScope.$broadcast('play', item);
+			$rootScope.$broadcast('play', { item: item, index: index });
 		} else {
 			$rootScope.$broadcast('play');
 		}
 	};
+
+	$rootScope.$on('adDataLoaded', function(adData) {
+		$scope.initStartView();	
+	});
+	
+	var currentAd = adService.getCurrentAd();
+	if(currentAd) {
+		$scope.initStartView();
+	}
 	
 });

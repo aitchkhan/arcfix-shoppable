@@ -7,7 +7,7 @@ angular.module('shopthatvid')
 	this.currentProduct = undefined;
 
 	var convertPropertyName = function(obj){
-		if(obj.length === undefined) {
+		if(obj && obj.length === undefined) {
 			_.each(obj, function(value, key){
 				var oldKey = key;
 				if(key === 'ID') {
@@ -17,11 +17,11 @@ angular.module('shopthatvid')
 				}
 				obj[key] = value;
 				delete obj[oldKey];
-				if(typeof obj[key] === 'object') {
+				if(obj[key] && typeof obj[key] === 'object') {
 					convertPropertyName(obj[key]);
 				}
 			});
-		} else if(obj.length > 0){
+		} else if(obj && obj.length > 0){
 			_.each(obj, function(item){
 				if(typeof item === 'object') {
 					convertPropertyName(item);
@@ -188,33 +188,69 @@ angular.module('shopthatvid')
 	};
 
 	return {
+		convertPropertyName: convertPropertyName,
 		getAds: function () {
-			return $http({
-				method: 'GET', url: GLOBALS.adUrl
-			});
+			return $http.post('http://104.40.17.112/api/shoppablevideos/getshoppablevideoinfo');
+
+			// return $http({
+			// 	method: 'GET', url: GLOBALS.adUrl
+			// });
 		},
-		getAd: function(videoId){
+		getAd: function(adUrl){
+
 			var self = this;
-			$rootScope.currentVideoId = videoId;
+
+			$rootScope.currentVideoUrl = adUrl;
 			return $http({
 				method: 'GET', 
 				cache: true,
-				url: GLOBALS.adUrl,
-				transformResponse: function(data, headers){
-					self.currentAd = mockAdResponse(JSON.parse(data), videoId);
-					return self.currentAd;
+				url: adUrl,
+				// transformResponse: function(data, headers){
+				// 	self.currentAd = mockAdResponse(JSON.parse(data), videoId);
+				// 	return self.currentAd;
+				// }
+			});
+		},
+		fetchAnyAd: function() {
+			var self = this;
+			return self.getAds()
+			.success(function(res, headers){
+				if(!res){
+					$rootScope.displayError('Error Occurred while fetchig the video ad content.');
+				} else {
+					// console.log('Ads Res: ', res);
+					var ad = res[0];
+					var adUrl = ad.ShoppableVideoBlobURL + ad.ShoppableVideoSAS;
+					return self.getAd(adUrl);
+					// .success(function(res, status) {
+					// 	console.log('Ad Res: ', res);
+					// 	return res;
+						
+					// 	// $http.post('http://104.40.17.112/api/shoppablevideos/getvideoinfo', { VideoId: res.VideoId })
+					// 	// .success(function(data, status, headers) {
+					// 	// 	console.log('Video info: ', data);
+					// 	// 	return data;
+					// 	// })
+						
+					// });
 				}
+			})
+			.error(function(res, headers){
+				$rootScope.displayError();
 			});
 		},
 		getCurrentAd: function() {
-			if(this.currentAd) {
-				return this.currentAd;
+			if($rootScope.currentAd) {
+				return $rootScope.currentAd;
 			} else {
 				return null;
 			}
 		},
+		getVideoUrl: function(videoId) {
+			return $http.post('http://104.40.17.112/api/shoppablevideos/getvideoinfo', { VideoId: videoId });
+		},
 		getProductGroup: function(videoId, productGroupId){
-			var self = this;
+			var self = this	;
 			$rootScope.currentVideoId = videoId;
 			$rootScope.currentProductGroupId = productGroupId;
 			return $http({
@@ -228,8 +264,8 @@ angular.module('shopthatvid')
 			});
 		},
 		getCurrentProductGroup: function() {
-			if(this.currentProductGroup) {
-				return this.currentProductGroup; 
+			if($rootScope.currentProductGroupId) {
+				return $rootScope.currentAd.productGroups[$rootScope.currentProductGroupId];
 			} else {
 				return null;
 			}

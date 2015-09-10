@@ -1,10 +1,10 @@
-<div id="main_item" class="view_hasHead" style="height:100%;" ng-init="initProductItemView()">
+<div id="main_item" class="view_hasHead" style="height:100%;" >
 	<div class="item_main">
 		<div class="item_body">
 			<div class="item_info">
-				<div class="item_sttl">{{ currentProduct.subtitle }}</div>
-				<div class="item_price">{{ currentProduct.price.priceValue }}</div>
-				<div class="item_link"><a ng-if="currentProduct.makeThisYourLookURL" class="button_buy" href="{{ currentProduct.makeThisYourLookURL }}" target="_blank">Make this your look!</a></div>
+				<div class="item_sttl">{{ currentProduct.name }}</div>
+				<div class="item_price">{{ currentProduct.unitPrice }}</div>
+				<div class="item_link"><a ng-if="currentProduct.link" class="button_buy" href="{{ currentProduct.link }}" target="_blank">Make this your look!</a></div>
 				<div class="item_desc">{{ currentProduct.description }}</div>
 				
 				<div class="item_colr cf" ng-if="showColors && currentProduct.productColors.length">
@@ -33,10 +33,10 @@
 					</div>
 				</div>
 			</div>
-			<div class="item_imgs" ng-init="imagesLoaded()">
-				<div class="item_imgs_main"><img ng-src="{{ currentMainImage }}"></div>
+			<div class="item_imgs" >
+				<div class="item_imgs_main"><img ng-src="{{ currentMainImage | productImage }}"></div>
 				<div class="item_imgs_thmb">
-					<img ng-src="{{ image }}" class="item_thmb" ng-repeat="image in currentProduct.productImages" ng-class="{selected: image==currentMainImage}" ng-click="updateMainImage(image)">
+					<img ng-src="{{ image | productImage }}" class="item_thmb" ng-repeat="image in currentProduct.productImages" ng-class="{selected: image.id==currentMainImage.id}" ng-click="updateMainImage(image)">
 				</div>
 			</div>
 		</div>

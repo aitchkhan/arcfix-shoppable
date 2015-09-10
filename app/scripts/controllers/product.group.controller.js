@@ -8,33 +8,28 @@ angular.module('shopthatvid')
 	if(0 === parseInt($rootScope.currentProductGroupId) ) {
 		$rootScope.navbar.disablePrev = true;
 	}
-	var currentAd = adService.getCurrentAd();
-	if(!currentAd) {
-		adService.getAd($stateParams.videoId)
-		.success(function(currentAd, headers){
-			$rootScope.$broadcast('adDataLoaded', productGroup);
-			if(currentAd && currentAd.productGroupTimeLine.length - 1 === parseInt($rootScope.currentProductGroupId) ) {
-				$rootScope.navbar.disableNext = true;
-			} else {
-				$rootScope.navbar.disableNext = false;
-			}
-		})
-		.error(function(err, headers){
-			console.log('error while fetching ad data.');
-		});
 
-	} else {
-		if(currentAd && currentAd.productGroupTimeLine.length - 1 === parseInt($rootScope.currentProductGroupId) ) {
-			$rootScope.navbar.disableNext = true;
-		} else {
-			$rootScope.navbar.disableNext = false;
-		}
-	}
+	// if(!currentAd) {
+	// 	adService.getAd($stateParams.videoId)
+	// 	.success(function(currentAd, headers){
+	// 		$rootScope.$broadcast('adDataLoaded', productGroup);
+	// 		if(currentAd && currentAd.productGroupTimeLine.length - 1 === parseInt($rootScope.currentProductGroupId) ) {
+	// 			$rootScope.navbar.disableNext = true;
+	// 		} else {
+	// 			$rootScope.navbar.disableNext = false;
+	// 		}
+	// 	})
+	// 	.error(function(err, headers){
+	// 		console.log('error while fetching ad data.');
+	// 	});
 
-	$rootScope.changeNavbar(ViewTypes.PRODUCT_GROUP);
-
-	$scope.currentProductGroup = productGroup.data;
-	$rootScope.navbar.headerTitle = $scope.currentProductGroup.title;
+	// } else {
+	// 	if(currentAd && currentAd.productGroupTimeLine.length - 1 === parseInt($rootScope.currentProductGroupId) ) {
+	// 		$rootScope.navbar.disableNext = true;
+	// 	} else {
+	// 		$rootScope.navbar.disableNext = false;
+	// 	}
+	// }
 
 	$scope.initGroupView = function(){
 		$timeout(function() {
@@ -49,4 +44,29 @@ angular.module('shopthatvid')
 	$scope.openProduct = function(product, productIndex){
 		$state.go('product', { videoId: $rootScope.currentVideoId, productGroupId: $rootScope.currentProductGroupId, productId: productIndex });
 	};
+
+	var init = function(currentAd) {
+		$rootScope.currentProductGroupId = $stateParams.productGroupId;
+		$scope.initGroupView();
+		if(currentAd && currentAd.productGroups.length - 1 === parseInt($rootScope.currentProductGroupId) ) {
+			$rootScope.navbar.disableNext = true;
+		} else {
+			$rootScope.navbar.disableNext = false;
+		}
+		$rootScope.changeNavbar(ViewTypes.PRODUCT_GROUP);
+
+		$scope.currentProductGroup = currentAd.productGroups[$rootScope.currentProductGroupId];
+		$rootScope.navbar.headerTitle = $scope.currentProductGroup.name;
+	};
+
+	$rootScope.$on('adDataLoaded', function(adData) {
+		var currentAd = adService.getCurrentAd();
+		init(currentAd);
+	});
+
+	var currentAd = adService.getCurrentAd();
+	if(currentAd) {
+		init(currentAd);
+	}
+
 });
