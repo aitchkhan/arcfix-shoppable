@@ -4,6 +4,8 @@ angular.module('shopthatvid')
 
 .controller('ProductGroupCtrl', function ($scope, $rootScope, $timeout, $state, $stateParams, productGroup, ViewTypes, adService) {
 	$('#main_group').css('opacity', 0);
+	$rootScope.$broadcast('videIdLoaded', $stateParams);
+	
 	// update the navigation
 	if(0 === parseInt($rootScope.currentProductGroupId) ) {
 		$rootScope.navbar.disablePrev = true;

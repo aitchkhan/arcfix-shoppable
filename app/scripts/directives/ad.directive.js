@@ -47,7 +47,7 @@ angular.module('shopthatvid')
 					var seekTime = currentAd.timeline.timelineItems[index].start;
 					scope.player.adPlayer('load', {
 						video: currentAd.videoDetail.videos[0].url,
-						poster: 'assets/content/products/group_01.png',
+						poster: item.productGroupImageUrl + item.productGroupImageSAS,
 						seekTime: seekTime,
 						groups: currentAd.timeline.timelineItems.map(function(elem){ return angular.isNumber(elem.start)?elem.start:null; })
 					});

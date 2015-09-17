@@ -6,6 +6,7 @@ angular.module('shopthatvid')
 
 	$rootScope.uiConfig.showVideo = false;
 	console.log('$stateParams.videoId: ', $stateParams.videoId);
+	$rootScope.$broadcast('videIdLoaded', $stateParams);
 	if(!$stateParams.videoId) {
 		$stateParams.videoId = 1;
 		// $scope.error = 'Error: Unable to retrieve get videoId. Please check your url to have valid videoId';

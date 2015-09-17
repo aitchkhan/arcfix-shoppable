@@ -196,15 +196,16 @@ angular.module('shopthatvid')
 			// 	method: 'GET', url: GLOBALS.adUrl
 			// });
 		},
-		getAd: function(adUrl){
+		getAd: function(postData){
 
 			var self = this;
 
-			$rootScope.currentVideoUrl = adUrl;
+			$rootScope.currentVideoPostData = postData;
 			return $http({
-				method: 'GET', 
+				method: 'POST', 
 				cache: true,
-				url: adUrl,
+				url: 'http://104.40.17.112/api/shoppablevideos/getshoppablevideo',
+				data: postData
 				// transformResponse: function(data, headers){
 				// 	self.currentAd = mockAdResponse(JSON.parse(data), videoId);
 				// 	return self.currentAd;

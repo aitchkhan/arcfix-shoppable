@@ -106,19 +106,19 @@ angular.module('shopthatvid')
 .filter('productGroupImage', function($rootScope) {
   return function(productGroup) {
     // console.log('productGroup.productGroupImageUrl + $rootScope.shoppableVideoSAS: ', productGroup.productGroupImageUrl + $rootScope.shoppableVideoSAS);
-    // if(!productGroup) {
+    if(!productGroup) {
       return 'assets/content/products/group_01.png';
-    // }
-    // return productGroup.productGroupImageUrl + $rootScope.shoppableVideoSAS;
+    }
+    return productGroup.productGroupImageUrl + productGroup.productGroupImageSAS;
   };
 })
 
 .filter('productImage', function($rootScope) {
   return function(product) {
-    // if(!product) {
+    if(!product) {
       return 'assets/content/products/group_02_shoes.png';
-    // }
-    // return product.productImageUrl + $rootScope.shoppableVideoSAS;
+    }
+    return product.productImageUrl + product.productImageSAS;
   };
 })
 

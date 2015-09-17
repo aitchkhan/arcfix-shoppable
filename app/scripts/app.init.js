@@ -33,50 +33,65 @@ angular.module('shopthatvid')
 		}
 	};
 
-	adService.getAds()
-	.success(function(data, status, headers){
-		console.log( data);
-		convertPropertyName(data);
-		var videoData = data[0];
-
-		if(!videoData) {
-			console.log('Ads not found...');
-		} else {
-			$rootScope.shoppableVideoSAS = videoData.shoppableVideoSAS;
-			var adDetailUrl = videoData.shoppableVideoBlobURL + videoData.shoppableVideoSAS;
-			adService.getAd(adDetailUrl)
-			.success(function(adDetail, status, headers) {
-				// console.log('adDetail: ', adDetail);
-				convertPropertyName(adDetail);
-				if(!adDetail) {
-					$rootScope.displayError('Error Occurred while fetchig the video ad content.');
-				} else {
-					
-					adService.getVideoUrl(adDetail.videoId)
-					.success(function(videoDetail, status) {
-						convertPropertyName(videoDetail);
-						// console.log('videoDetail', videoDetail);
-						adDetail.videoDetail = videoDetail.videoDetail;
-						adDetail.videoThumbnail = videoData.imageBlobURL + videoData.imageSAS;
-						$rootScope.currentAd = adDetail;
-						$rootScope.$broadcast('adDataLoaded', adDetail);
-						console.log('currentAd: ', adDetail);
-					})
-					.error(function(error) {
-						console.log('error in getting VideoUrl: ', error);
+	// $rootScope.$on('videIdLoaded', function(event, param) {
+	// 	console.log('received videoId ', param.videoId);
+	var param = {};
+		adService.getAds()
+		.success(function(data, status, headers){
+			console.log( data);
+			convertPropertyName(data);
+			var videoData = data[param.videoId] || data[0];
+			$rootScope.paramVideoId = param.videoId || 0;
+			
+			if(!videoData) {
+				console.log('Ads not found...');
+			} else {
+				$rootScope.shoppableVideoSAS = videoData.shoppableVideoSAS;
+				var adDetailUrl = videoData.shoppableVideoBlobURL + videoData.shoppableVideoSAS;
+				adService.getAd({
+					ShoppableVideoUrl: videoData.shoppableVideoBlobURL,
+					ShoppableVideoSAS: videoData.shoppableVideoSAS
+				})
+				.success(function(adDetail, status, headers) {
+					// console.log('adDetail: ', adDetail);
+					convertPropertyName(adDetail);
+					adDetail = adDetail.shoppableVideo;
+					for(var i=adDetail.productGroups.length-1; i>=0;i--) {
+						var group = adDetail.productGroups[i];
+						if(group.productGroupImageUrl === null || group.productGroupImageSAS === null) {
+							adDetail.productGroups.splice(i, 1);
+						}
+					}
+					if(!adDetail) {
 						$rootScope.displayError('Error Occurred while fetchig the video ad content.');
-					});
-				}
-			})
-			.error(function(err, status, headers) {
-				console.log('Error fetching Ad details: ', err, status, headers);
-			});
-		}
-	})
-	.error(function(err, status, headers) {
-		console.log('Error fetching Ad list: ', err, status, headers);
-	});
+					} else {
+						
+						adService.getVideoUrl(adDetail.videoId)
+						.success(function(videoDetail, status) {
+							convertPropertyName(videoDetail);
+							// console.log('videoDetail', videoDetail);
+							adDetail.videoDetail = videoDetail.videoDetail;
+							adDetail.videoThumbnail = videoData.imageBlobURL + videoData.imageSAS;
+							$rootScope.currentAd = adDetail;
+							$rootScope.$broadcast('adDataLoaded', adDetail);
+							console.log('currentAd: ', adDetail);
+						})
+						.error(function(error) {
+							console.log('error in getting VideoUrl: ', error);
+							$rootScope.displayError('Error Occurred while fetchig the video ad content.');
+						});
+					}
+				})
+				.error(function(err, status, headers) {
+					console.log('Error fetching Ad details: ', err, status, headers);
+				});
+			}
+		})
+		.error(function(err, status, headers) {
+			console.log('Error fetching Ad list: ', err, status, headers);
+		});
 
+	// });
 
 	// adService.getAds()
 	// .success(function(data, status, headers){

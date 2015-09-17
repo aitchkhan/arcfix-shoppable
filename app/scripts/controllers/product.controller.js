@@ -5,7 +5,8 @@ angular.module('shopthatvid')
 .controller('ProductCtrl', function ($scope, $rootScope, $timeout, $stateParams, product, ViewTypes, adService, GLOBALS) {
 	// update the navigation
 	$rootScope.changeNavbar(ViewTypes.PRODUCT_ITEM);
-
+    $rootScope.$broadcast('videIdLoaded', $stateParams);
+    
 	$scope.showReviews = GLOBALS.showProductReviews;
 	$scope.showColors = GLOBALS.showProductColors;
 	$scope.showProductSizes = GLOBALS.showProductSizes;

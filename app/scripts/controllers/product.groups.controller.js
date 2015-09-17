@@ -5,6 +5,7 @@ angular.module('shopthatvid')
 .controller('ProductGroupsCtrl', function ($scope, $rootScope, $timeout, $state, $stateParams, productGroups, ViewTypes, adService) {
 	// update the navigation
 	$rootScope.changeNavbar(ViewTypes.PRODUCT_GROUPS);
+	$rootScope.$broadcast('videIdLoaded', $stateParams);
 	
 	// console.log('productGroups', productGroups);
 	
