@@ -190,7 +190,7 @@ angular.module('shopthatvid')
 	return {
 		convertPropertyName: convertPropertyName,
 		getAds: function () {
-			return $http.post('http://104.40.17.112/api/shoppablevideos/getshoppablevideoinfo');
+			return $http.post(GLOBALS.apiUrl + 'getshoppablevideoinfo');
 
 			// return $http({
 			// 	method: 'GET', url: GLOBALS.adUrl
@@ -204,7 +204,7 @@ angular.module('shopthatvid')
 			return $http({
 				method: 'POST', 
 				cache: true,
-				url: 'http://104.40.17.112/api/shoppablevideos/getshoppablevideo',
+				url: GLOBALS.apiUrl + 'getshoppablevideo',
 				data: postData
 				// transformResponse: function(data, headers){
 				// 	self.currentAd = mockAdResponse(JSON.parse(data), videoId);
@@ -227,7 +227,7 @@ angular.module('shopthatvid')
 					// 	console.log('Ad Res: ', res);
 					// 	return res;
 						
-					// 	// $http.post('http://104.40.17.112/api/shoppablevideos/getvideoinfo', { VideoId: res.VideoId })
+					// 	// $http.post(GLOBALS.apiUrl + 'getvideoinfo', { VideoId: res.VideoId })
 					// 	// .success(function(data, status, headers) {
 					// 	// 	console.log('Video info: ', data);
 					// 	// 	return data;
@@ -248,7 +248,7 @@ angular.module('shopthatvid')
 			}
 		},
 		getVideoUrl: function(videoId) {
-			return $http.post('http://104.40.17.112/api/shoppablevideos/getvideoinfo', { VideoId: videoId });
+			return $http.post(GLOBALS.apiUrl + 'getvideoinfo', { VideoId: videoId });
 		},
 		getProductGroup: function(videoId, productGroupId){
 			var self = this	;

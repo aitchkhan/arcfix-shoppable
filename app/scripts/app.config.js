@@ -8,7 +8,9 @@ angular.module('shopthatvid')
 	projectGroupUrl		: 'data/product_group.json',
 	showProductReviews 	: false,
 	showProductColors 	: true,
-	showProductSizes 	: true
+	showProductSizes 	: true,
+	apiUrl 				: 'http://shoppable-cms.herokuapp.com/api/'
+	// apiUrl 				: 'http://dev.api.shopthatvideo.com/api/shoppablevideos/'
 })
 
 .value('NavbarConfig', {
