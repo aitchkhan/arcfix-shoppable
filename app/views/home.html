@@ -3,7 +3,7 @@
 		<div class="grid_head">
 			<a ng-click="startVideo()">
 				<div class="head_ttl">{{currentAd.name}}</div>
-				<div class="head_img"><img ng-src="{{currentAd.thumbnail}}" /></div>
+				<div class="head_img"><img ng-src="{{currentAd.thumbnail.url}}" /></div>
 				<div class="head_dsc">{{currentAd.description}}</div>
 			</a>
 		</div>
@@ -12,7 +12,7 @@
 				<div class="grid_col" asv-grid-item ng-repeat="item in currentAd.productGroupTimeLine">
 					<div class="grid_item" >
 						<a ng-click="startVideo(item)">
-							<img ng-src="{{ item.thumbnail }}" />
+							<img ng-src="{{ item.thumbnail.url }}" />
 							<div class="grid_item_ovr">
 								<div class="grid_item_ttl">
 										{{ item.title }}

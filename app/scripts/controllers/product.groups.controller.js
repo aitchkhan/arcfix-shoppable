@@ -22,7 +22,7 @@ angular.module('shopthatvid')
 		$rootScope.navbar.headerTitle = currentAd.name;
 	}
 
-	$scope.productGroups = productGroups.data;
+	$scope.productGroups = productGroups;
 
 	$scope.initGroupsView = function() {
 		$timeout(function(){

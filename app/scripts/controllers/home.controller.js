@@ -7,7 +7,7 @@ angular.module('shopthatvid')
 	$rootScope.uiConfig.showVideo = false;
 	console.log('$stateParams.videoId: ', $stateParams.videoId);
 	if(!$stateParams.videoId) {
-		$stateParams.videoId = 1;
+		$stateParams.videoId = '5652e5bd88c3600300f997b0';
 		// $scope.error = 'Error: Unable to retrieve get videoId. Please check your url to have valid videoId';
 		// $rootScope.changeNavbar(ViewTypes.ERROR);
 	}
@@ -16,9 +16,10 @@ angular.module('shopthatvid')
 	$rootScope.navbar.headerTitle = 'Shop that video';
 	$rootScope.changeNavbar(ViewTypes.HOME);
 	$scope.currentProductGroup = {};
-	$scope.currentProductGroup.Title = 'Shop that video';
+	$scope.currentProductGroup.title = 'Shop that video';
 	
 	$scope.currentAd = currentAdResponse.data;
+	console.log('$scope.currentAd', $scope.currentAd);
 	$rootScope.$broadcast('adDataLoaded');
 	
 	$scope.initStartView = function(){

@@ -15,7 +15,7 @@ angular.module('shopthatvid')
 				console.log('Ad player paused...', event);
 				var productGroupId = $(event.currentTarget).data('id');
 				var currentAd = adService.getCurrentAd();
-				$state.go('productGroup', {videoId: currentAd.id, productGroupId: productGroupId})
+				$state.go('productGroup', {videoId: currentAd._id, productGroupId: productGroupId})
 				.then(function(){
 					$rootScope.uiConfig.showMainContent = true;
 				});

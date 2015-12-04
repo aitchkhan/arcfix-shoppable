@@ -15,7 +15,7 @@ angular.module('shopthatvid')
 		var currentAd = adService.getCurrentAd();
 		if(currentAd) {
 			console.log('currentAd', currentAd);
-			$state.go('home', { videoId: currentAd.id });
+			$state.go('home', { videoId: currentAd._id });
 		} else if($rootScope.currentVideoId){
 			$state.go('home', { videoId: $rootScope.currentVideoId });
 		}

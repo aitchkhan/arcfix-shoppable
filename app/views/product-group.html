@@ -2,14 +2,14 @@
 	<div class="grid_main">
 		<div class="grid_head">
 			<div class="head_ttl">{{ currentProductGroup.subtitle }}</div>
-			<div class="head_img"><img ng-src="{{ currentProductGroup.thumbnail }}" /></div>
+			<div class="head_img"><img ng-src="{{ currentProductGroup.thumbnail.url }}" /></div>
 			<div class="head_lnk"><a class="button_buy" href="{{ currentProductGroup.makeThisYourLookURL }}" target="_blank">Make this your look!</a></div>
 			<div class="head_dsc">{{ currentProductGroup.description }}</div>
 		</div>
 		<div class="grid_cont">
 			<div class="grid_body">
 				<div class="grid_item" ng-repeat="product in currentProductGroup.products" ng-click="openProduct(product, $index)">
-					<img ng-src="{{ product.productImages[0] }}">
+					<img ng-src="{{ product.images[0].url }}">
 					<div class="grid_item_ttl"> {{ product.name }} </div>
 					<div class="grid_item_dsc"> {{ product.description }} </div>
 				</div>				

@@ -4,7 +4,7 @@
 			<div class="grid_body">
 				<div class="grid_item" ng-repeat="productGroup in productGroups" ng-click="gotoProductGroup(productGroup, $index)">
 					<div class="grid_item_ttl">{{ productGroup.title }}</div>
-					<img ng-src="{{ productGroup.thumbnail }}" ng-show="displayImage">
+					<img ng-src="{{ productGroup.thumbnail.url }}" ng-show="displayImage">
 					<div class="grid_item_lnk"><a class="button_buy" href="{{ productGroup.makeThisYourLookURL }}" target="_blank">Make this your look!</a>
 					</div>
 					<div class="grid_item_stl">{{ productGroup.subtitle }}</div>

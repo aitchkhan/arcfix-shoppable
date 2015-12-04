@@ -9,10 +9,10 @@ angular.module('shopthatvid')
 	$scope.showReviews = GLOBALS.showProductReviews;
 	$scope.showColors = GLOBALS.showProductColors;
 	$scope.showProductSizes = GLOBALS.showProductSizes;
-	$scope.currentProduct = product.data;
+	$scope.currentProduct = product;
 	$rootScope.navbar.headerTitle = $scope.currentProduct.name;
 
-	$scope.currentMainImage = $scope.currentProduct.productImages[0];
+	$scope.currentMainImage = $scope.currentProduct.images[0];
 
 	$scope.getNumber = function(num) {
 		return new Array(num);   
