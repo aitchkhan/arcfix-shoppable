@@ -32,23 +32,35 @@ angular.module('shopthatvid')
 	$stateProvider
 	
 	.state('home', {
-		url: '/ad/:videoId',
+		url: '/',
 		templateUrl: '../views/home.html',
 		controller: 'HomeCtrl',
 		resolve: { 
-			currentAdResponse:function($rootScope, $stateParams, $state, adService){
-				return adService.getAd($stateParams.videoId)
-				.success(function(project, headers){
-					if(!project){
+			projects: function($rootScope, adService) {
+				return adService.getAds()
+				.success(function(projects, headers){
+					if(!projects){
 						$rootScope.displayError('Error Occurred while fetchig the video ad content.');
 					}
-					$rootScope.currentAd = project;
-					return project;
+					return projects;
 				})
 				.error(function(error, headers){
 					$rootScope.displayError();
 				});
 			}
+			// currentAdResponse:function($rootScope, $stateParams, $state, adService){
+			// 	return adService.getAd($stateParams.videoId)
+			// 	.success(function(project, headers){
+			// 		if(!project){
+			// 			$rootScope.displayError('Error Occurred while fetchig the video ad content.');
+			// 		}
+			// 		$rootScope.currentAd = project;
+			// 		return project;
+			// 	})
+			// 	.error(function(error, headers){
+			// 		$rootScope.displayError();
+			// 	});
+			// }
 		}
 	})
 

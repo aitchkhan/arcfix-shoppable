@@ -8,6 +8,19 @@ angular.module('shopthatvid')
 	if(0 === parseInt($rootScope.currentProductGroupId) ) {
 		$rootScope.navbar.disablePrev = true;
 	}
+
+	$scope.initGroupView = function(){
+		if($scope.currentProductGroup) {
+			$timeout(function() {
+				var groupPage = $('#main_group').gridView({ template: 'grid_group', itemWidth: 60, itemHeight: 110 });
+				groupPage.gridView('update', true);
+				$('#main_group').css('opacity', 1);
+				// $('#main_start').find('.head_dsc').jScroll({ autoresize: true })
+				var headerDscScroll = $('#main_group .grid_head .head_dsc').jScroll({ autoresize: true });
+			}, 10, true);
+		}
+	};
+	
 	var currentAd = adService.getCurrentAd();
 	if(!currentAd) {
 		adService.getAd($stateParams.videoId)
@@ -25,6 +38,7 @@ angular.module('shopthatvid')
 			} else {
 				$rootScope.navbar.disableNext = false;
 			}
+			$scope.initGroupView();
 		})
 		.error(function(err, headers){
 			console.log('error while fetching ad data.');
@@ -40,17 +54,8 @@ angular.module('shopthatvid')
 		} else {
 			$rootScope.navbar.disableNext = false;
 		}
+		$scope.initGroupView();
 	}
-
-	$scope.initGroupView = function(){
-		$timeout(function() {
-			var groupPage = $('#main_group').gridView({ template: 'grid_group', itemWidth: 60, itemHeight: 110 });
-			groupPage.gridView('update', true);
-			$('#main_group').css('opacity', 1);
-			// $('#main_start').find('.head_dsc').jScroll({ autoresize: true })
-			var headerDscScroll = $('#main_group .grid_head .head_dsc').jScroll({ autoresize: true });
-		}, 10, true);
-	};
 
 	$scope.openProduct = function(product, productIndex){
 		$state.go('product', { videoId: $rootScope.currentVideoId, productGroupId: $rootScope.currentProductGroupId, productId: productIndex });

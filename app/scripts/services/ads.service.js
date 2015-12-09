@@ -189,9 +189,7 @@ angular.module('shopthatvid')
 
 	return {
 		getAds: function () {
-			return $http({
-				method: 'GET', url: GLOBALS.adUrl
-			});
+			return $http.get(GLOBALS.adUrl + '/projects');
 		},
 		getAd: function(videoId){
 			var self = this;
