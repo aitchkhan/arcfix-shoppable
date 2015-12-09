@@ -1,24 +1,24 @@
 <div id="main_start" class="view_hasHead grid_start" asv-grid-view template-type="grid_start" head-item="currentAd" body-items="currentAd.productGroupTimeLine" style="height:100%">
 	<div class="grid_main">
 		<div class="grid_head">
-			<a ng-click="startVideo()">
-				<div class="head_ttl">{{currentAd.name || 'Missing Ad Name'}}</div>
-				<div class="head_img"><img ng-src="{{ currentAd.videoThumbnail }}" /></div>
-				<div class="head_dsc">{{currentAd.description}}</div>
+			<a ng-click="startVideo(mainProject)">
+				<div class="head_ttl">{{mainProject.name}}</div>
+				<div class="head_img"><img ng-src="{{mainProject.thumbnail.url}}" /></div>
+				<div class="head_dsc">{{mainProject.description}}</div>
 			</a>
 		</div>
 		<div class="grid_cont">
 			<div class="grid_body">
-				<div class="grid_col" asv-grid-item ng-repeat="item in currentAd.productGroups">
+				<div class="grid_col" asv-grid-item ng-repeat="project in projects" ng-if="$index>0">
 					<div class="grid_item" >
-						<a ng-click="startVideo(item, $index)">
-							<img ng-src="{{ item | productGroupImage }}" />
+						<a ng-click="startVideo(project)">
+							<img ng-src="{{ project.thumbnail.url }}" />
 							<div class="grid_item_ovr">
 								<div class="grid_item_ttl">
-										{{ item.name }}
+										{{ project.name }}
 								</div>
 								<div class="grid_item_dsc">
-										{{ item.description }}
+										{{ project.description }}
 								</div>
 							</div>
 						</a>

@@ -190,11 +190,7 @@ angular.module('shopthatvid')
 	return {
 		convertPropertyName: convertPropertyName,
 		getAds: function () {
-			return $http.post(GLOBALS.apiUrl + 'getshoppablevideoinfo');
-
-			// return $http({
-			// 	method: 'GET', url: GLOBALS.adUrl
-			// });
+			return $http.get(GLOBALS.adUrl + '/projects');
 		},
 		getAd: function(postData){
 
@@ -204,40 +200,11 @@ angular.module('shopthatvid')
 			return $http({
 				method: 'POST', 
 				cache: true,
-				url: GLOBALS.apiUrl + 'getshoppablevideo',
-				data: postData
+				url: GLOBALS.adUrl + '/projects/'+ videoId +'/true',
 				// transformResponse: function(data, headers){
 				// 	self.currentAd = mockAdResponse(JSON.parse(data), videoId);
 				// 	return self.currentAd;
 				// }
-			});
-		},
-		fetchAnyAd: function() {
-			var self = this;
-			return self.getAds()
-			.success(function(res, headers){
-				if(!res){
-					$rootScope.displayError('Error Occurred while fetchig the video ad content.');
-				} else {
-					// console.log('Ads Res: ', res);
-					var ad = res[0];
-					var adUrl = ad.ShoppableVideoBlobURL + ad.ShoppableVideoSAS;
-					return self.getAd(adUrl);
-					// .success(function(res, status) {
-					// 	console.log('Ad Res: ', res);
-					// 	return res;
-						
-					// 	// $http.post(GLOBALS.apiUrl + 'getvideoinfo', { VideoId: res.VideoId })
-					// 	// .success(function(data, status, headers) {
-					// 	// 	console.log('Video info: ', data);
-					// 	// 	return data;
-					// 	// })
-						
-					// });
-				}
-			})
-			.error(function(res, headers){
-				$rootScope.displayError();
 			});
 		},
 		getCurrentAd: function() {
@@ -254,19 +221,25 @@ angular.module('shopthatvid')
 			var self = this	;
 			$rootScope.currentVideoId = videoId;
 			$rootScope.currentProductGroupId = productGroupId;
-			return $http({
-				method: 'GET', 
-				cache: true,
-				url: GLOBALS.adUrl,
-				transformResponse: function(data, headers){
-					self.currentProductGroup = mockProductGroupResponse(JSON.parse(data), videoId, productGroupId);
-					return self.currentProductGroup;
-				}
-			});
+			if($rootScope.currentAd) {
+				$rootScope.currentProductGroup = $rootScope.currentAd.productGroupTimeLine[productGroupId];
+				return $rootScope.currentProductGroup;
+			} else {
+				return null;
+			}
+			// return $http({
+			// 	method: 'GET', 
+			// 	cache: true,
+			// 	url: GLOBALS.adUrl,
+			// 	// transformResponse: function(data, headers){
+			// 	// 	self.currentProductGroup = mockProductGroupResponse(JSON.parse(data), videoId, productGroupId);
+			// 	// 	return self.currentProductGroup;
+			// 	// }
+			// });
 		},
 		getCurrentProductGroup: function() {
-			if($rootScope.currentProductGroupId) {
-				return $rootScope.currentAd.productGroups[$rootScope.currentProductGroupId];
+			if($rootScope.currentProductGroup) {
+				return $rootScope.currentProductGroup; 
 			} else {
 				return null;
 			}
@@ -274,15 +247,21 @@ angular.module('shopthatvid')
 		getProductGroups: function(videoId){
 			var self = this;
 			$rootScope.currentVideoId = videoId;
-			return $http({
-				method: 'GET', 
-				cache: true,
-				url: GLOBALS.adUrl,
-				transformResponse: function(data, headers){
-					self.currentProductGroups = mockProductGroupsResponse(JSON.parse(data), videoId);
-					return self.currentProductGroups;		
-				}
-			});
+			if($rootScope.currentAd) {
+				return $rootScope.currentAd.productGroupTimeLine;	
+			} else {
+				return null;
+			}
+			
+			// return $http({
+			// 	method: 'GET', 
+			// 	cache: true,
+			// 	url: GLOBALS.adUrl,
+			// 	// transformResponse: function(data, headers){
+			// 	// 	self.currentProductGroups = mockProductGroupsResponse(JSON.parse(data), videoId);
+			// 	// 	return self.currentProductGroups;		
+			// 	// }
+			// });
 		},
 		getCurrentProductGroups: function(){
 			if(this.currentProductGroups) {
@@ -296,15 +275,21 @@ angular.module('shopthatvid')
 			$rootScope.currentVideoId = videoId;
 			$rootScope.currentProductGroupId = productGroupId;
 			$rootScope.currentProductId = productId;
-			return $http({
-				method: 'GET', 
-				cache: true,
-				url: GLOBALS.adUrl,
-				transformResponse: function(data, headers){
-					self.currentProduct = mockProductResponse(JSON.parse(data), videoId, productGroupId, productId);
-					return self.currentProduct;
-				}
-			});
+			if($rootScope.currentAd) {
+				$rootScope.currentProduct = $rootScope.currentAd.productGroupTimeLine[productGroupId]?$rootScope.currentAd.productGroupTimeLine[productGroupId].products[productId]:null;
+				return $rootScope.currentProduct;
+			} else {
+				return null;
+			}
+			// return $http({
+			// 	method: 'GET', 
+			// 	cache: true,
+			// 	url: GLOBALS.adUrl,
+			// 	transformResponse: function(data, headers){
+			// 		self.currentProduct = mockProductResponse(JSON.parse(data), videoId, productGroupId, productId);
+			// 		return self.currentProduct;
+			// 	}
+			// });
 		},
 		getCurrentProduct: function() {
 			if(this.currentProduct) {

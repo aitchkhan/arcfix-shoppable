@@ -9,6 +9,24 @@ angular.module('shopthatvid')
 	
 	// console.log('productGroups', productGroups);
 	
+	console.log('productGroups', productGroups);
+	var currentAd = adService.getCurrentAd();
+	if(!currentAd) {
+		adService.getAd($stateParams.videoId)
+		.success(function(currentAd, headers){
+			$rootScope.$broadcast('adDataLoaded');
+			$rootScope.navbar.headerTitle = currentAd.name;
+		})
+		.error(function(err, headers){
+			console.log('error while fetching ad data.');
+		});
+
+	} else {
+		$rootScope.navbar.headerTitle = currentAd.name;
+	}
+
+	$scope.productGroups = productGroups;
+
 	$scope.initGroupsView = function() {
 		$timeout(function(){
 			var groupsView = $('#main_groups').gridView({ template: 'grid_groups', columns: false });

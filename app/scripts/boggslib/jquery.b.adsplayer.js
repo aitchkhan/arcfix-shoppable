@@ -42,9 +42,8 @@
 		load: function (obj, cb) {
 			var self = this, v = self.vals;
 			if (obj) {
-				self.options.video = obj.video;
-				self.options.poster = obj.poster;
-				console.log('obj.groups', obj.groups);
+				self.options.video = obj.video.url;
+				self.options.poster = obj.poster.url;
 				self.options.groups = obj.groups;
 			}
 			if (self.options.video != null) {
@@ -52,7 +51,7 @@
 				if (self.vidp.vid) {
 					self.vidp.vid.attr('src', self.options.video);
 				} else {
-					self.vidp.vid = $('<video src="' + self.options.video + '" class="adplay_vid" width="' + v.w + '" height="' + v.h + '" type="video/mp4" style="left: ' + v.ol + 'px; top: ' + v.ot + 'px"></video>').appendTo(self.elem);
+					self.vidp.vid = $('<video crossorigin="anonymous" src="' + self.options.video + '" class="adplay_vid" width="' + v.w + '" height="' + v.h + '" type="video/mp4" style="left: ' + v.ol + 'px; top: ' + v.ot + 'px"></video>').appendTo(self.elem);
 					self.attachEvents(true);
 				}
 				
@@ -213,6 +212,7 @@
 				var self = this, v = self.vals;
 				if (poster) {
 					var img = new Image();
+					img.crossOrigin="anonymous";
 					img.onload = function(){
 						self.vidp.con.drawImage(img, 0, 0, v.cnvw, v.cnvh);
 					}
