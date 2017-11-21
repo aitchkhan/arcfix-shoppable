@@ -43,6 +43,7 @@
     "test": "grunt test",
     "grunt:build": "grunt build --force",
     "bower:install": "bower install",
-    "grunt:serve": "grunt serve --force"
+    "grunt:serve": "grunt serve --force",
+    "start": "node web.js"
   }
 }
