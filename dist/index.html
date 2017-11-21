@@ -1,0 +1,11 @@
+<!doctype html> <html class="no-js"> <head> <meta charset="utf-8"> <title></title> <base url="http://projects.hoanvusolutions.com/test-app/shopthatvid/"> <meta name="viewport" content="width=device-width,initial-scale=1"> <meta charset="utf-8"> <meta name="description" content=""> <!-- Place favicon.ico and apple-touch-icon.png in the root directory --> <link rel="stylesheet" href="styles/vendor.23e47d0f.css"> <link rel="stylesheet" href="styles/main.2b817ead.css"> <style type="text/css">/*#main_page > div {
+			visibility: visible;
+		}*/</style>  <body ng-app="shopthatvid"> <!--[if lt IE 7]>
+		<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+	<![endif]--> <!-- Google Analytics: change UA-XXXXX-X to be your site's ID --> <script>// !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
+		 // (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
+		 // r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
+		 // }(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		 // ga('create', 'UA-XXXXX-X');
+		 // ga('send', 'pageview');</script> <script src="scripts/vendor.7083840a.js"></script> <script src="scripts/scripts.2c5e023e.js"></script> <div id="main_page" ng-controller="MainCtrl" ng-cloak> <div id="main_head" ng-show="uiConfig.showMainContent"> <div ng-include="'views/navbar.html'" include-replace></div> </div> <div id="main_error" class="view_hasHead" ng-if="error"> {{ error }} </div> <div class="" ng-show="uiConfig.showMainContent"> <div ui-view style="height:100%" ng-animate="'main-view'"></div> </div> <div id="main_search" ng-class="{open:openSearchPanel}" ng-show="showSearchPanel"> <div ng-include="'views/search.html'" include-replace></div> </div> <div id="main_play" ng-show="uiConfig.showVideo" b-video-ad player="player"></div> </div>  
